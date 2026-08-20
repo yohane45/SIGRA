@@ -1,0 +1,295 @@
+/* ==================================
+COMPONENTE BASE: SUPERFICIE
+DESCRIPCIÓN::
+Define la apariencia visual de todos
+los contenedores del sistema.
+================================== */
+.surface{
+    background: var(--color-superficie);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-media);
+    padding: var(--espaciado-md);
+}
+
+/* BOTON PRINCIPAL */
+.button-primary{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    padding: 14px;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: var(--radio);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    transition: all .3s ease;
+    margin-top: var(--espaciado-sm);
+}
+.button-primary:hover{
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+.button-primary:active{
+    transform: translateY(0);
+}
+.button-secundary{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    padding: 14px;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: var(--radio);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    transition: all .3s ease;
+    margin-top: var(--espaciado-sm);
+}
+.button-secundary:hover{
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+.button-secundary:active{
+    transform: translateY(0);
+}
+
+/* FORMULARIOS */
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaciado-xs);
+}
+
+/* ETIQUETAS DE FORMULARIO */
+.form-group label{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: var(--espaciado-xs);
+}
+
+/* CAMPOS DE FORMULARIO */
+    .form-group input,
+    .form-group select,
+    .form-group texarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    font-size: 15px;
+    font-family: var(--fuente-principal);
+    background: transparent;
+}
+
+/* GRUPO DE INPUTS CON ICONO */
+.input-group{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: 0 var(--espaciado-sm);
+    transition: all .3s ease;
+}
+.input-group i{
+    color: var(--color-texto-secundario);
+    font-size: 18px;
+}
+.input-group input,
+.input-group select{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+}
+.input-group:focus-within{
+    border-color: var(--color-primario);
+    box-shadow: 0 0 12px rgba(15,76,129,.25);
+}
+.form-group textarea{
+    min-height: 110px;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    resize: vertical;
+}
+
+.form-group textarea:focus{
+    border-color: var(--color-primario);
+    box-shadow: 0 0 12px rgba(15,76,129,.25);
+}
+
+/* PAGE HEADER */
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--espaciado-lg);
+    margin-bottom: var(--espaciado-xs);
+}
+.page-header-info{
+    display: flex;
+    flex-direction: column;
+}
+.page-header-info h1{
+    font-size: var(--font-size-h1);
+    color: var(--color-texto);
+    margin-bottom: var(--espaciado-xs);
+}
+.page-header-info p{
+    font-size: var(--font-size-body);
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+.page-header-actions{
+    display: flex;
+    gap: var(--espaciado-md);
+}
+
+/* Button */
+.button{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    padding: var(--espaciado-sm) var(--espaciado-lg);
+}
+.notification-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background: var(--color-superficie);
+    cursor: pointer;
+    transition: all 03s ease;
+}
+.notification-button:hover{
+    background: var(--color-fondo);
+    border-color: var(--color-primario);
+}
+.notification-button i{
+    font-size: 18px;
+    color: var(--color-texto-secundario);
+}
+
+/* Topbar */
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaciado-lg);
+    margin-bottom: var(--espaciado-lg);
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    width: 250px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-borde);
+    border-radius: 20px;
+    background-color: var(--color-superficie);
+}
+.search-box i{
+    color: var(--color-texto);
+}
+.search-box input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+}
+.search-box input::placeholder{
+    color: var(--color-texto-secundario);
+}
+.topbar-right{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-md);
+}
+.user-profile{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+}
+.user-profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+.search-form{
+    width: 100%;
+}
+/* Acciones del formulario */
+.form-actions{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--espaciado-md);
+    padding: var(--espaciado-lg);
+}
+.form-actions .button-primary,
+.form-actions, .button-secundary{
+    width: auto;
+    margin-top: 0;
+}
+/* topbar - componente reutilizable */
+        
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--espaciado-md);
+        background-color: var(--color-superficie);
+        min-height: 80px;
+        color: var(--color-texto);
+        box-shadow: var(--sombra-suave);
+        margin-bottom: var(--espaciado-xs);
+        border-radius: var(--radio);
+    }
+
+    .topbar-center {
+        flex: 1;
+        margin: 0 var(--espaciado-xl);
+    }
+
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: var(--espaciado-md);
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: var(--espaciado-sm);
+    }
+
+    .user-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+    }

@@ -1,0 +1,166 @@
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaciado-md);
+    background-color: var(--color-superficie);
+    min-height: 80px;
+    color: var(--color-texto);
+    box-shadow: var(--sombra-suave);    
+}
+.topbar-right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.topbar-right img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-name{
+    font-weight: 600;
+    color: var(--color-texto);
+}
+.topbar-center input{
+    width: 350px;
+    padding: 10px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-superficie);
+}
+.topbar-center input:focus{
+    outline: none;
+    border-color: var(--color-primario);
+    
+}
+/* ===============================
+    COMPONENTE: TARJETAS
+================================= */
+
+.cards{
+    display:flex;
+    gap: var(--espaciado-md);
+    margin-top: var(--espaciado-lg);
+}
+.card{
+    flex: 1;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-media);
+}
+.card h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaciado-xs);
+    margin-bottom: var(--espaciado-sm);
+}
+.card h2 i{
+    font-size: 22px;
+    color: var(--color-primario);
+}
+.card-value{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+.card-status{
+    font-size: 14px;
+    display:block;
+    margin-top: 10px;
+}
+/* ===============================
+    ESTADOS DEL SISTEMA
+================================= */
+.status-success{
+    color: var(--color-secundario);
+}
+.status-warning{
+    color: var(--color-advertencia);
+}
+.status-danger{
+    color: var(--color-peligro);
+}
+.status-info{
+    color: var(--color-primario);
+}    
+/* ===============================
+    COMPONENTE: PANELES
+================================= */
+.panels{
+    display: flex;
+    gap: var(--espaciado-md);
+    margin-top: var(--espaciado-lg);
+}
+.panel{
+    flex: 1;
+}
+.panel h2{
+    font-size: 18px;
+    margin-bottom: var(--espaciado-md);
+    color: var(--color-texto);
+}
+.panel ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.panel li{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    padding: var(--espaciado-sm) 0;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+}
+.panel li i{
+    color: var(--color-primario);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+/* ===============================
+    COMPONENTE: GRÁFICOS
+================================= */
+.charts{
+    display: flex;
+    gap: var(--espaciado-md);
+    margin-top: var(--espaciado-lg);
+}
+.chart-card{
+    flex: 1;
+}
+.chart-card h2{
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    margin-bottom: var(--espaciado-md);
+    color: var(--color-texto);
+}
+.chart-placeholder{
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-placeholder);
+    color: var(--color-texto-secundario);
+    text-align: center;
+    padding: var(--espaciado-md);
+}
+.chart-placeholder i{
+    font-size: 60px;
+    color: var(--color-primario);
+}
+.chart-placeholder p{
+    max-width: 260px;
+    line-height: 1.5;
+    font-size: 15px;
+}

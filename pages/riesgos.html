@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGRA - Gestión del Riesgo</title>
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/riesgos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <!--Encabezado del Sidebar-->
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo SIGRA">
+                <h2>SIGRA</h2>
+                <p>Seguridad, Salud en el Trabajo Y Capacitaciones</p>
+            </div>
+
+            <!--Navegación Principal-->
+            <nav class="menu">
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                </a>
+                <a href="riesgos.html" class="active">
+                    <i class="bi bi-exclamation-triangle"></i>
+                        <span>Gestión del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                        <span>Gestion de Inspecciones</span>
+                </a>
+                <a href="incidentes.html">
+                    <i class="bi bi-file-earmark-medical"></i>
+                        <span>Gestion de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html">
+                    <i class="bi bi-mortarboard"></i>
+                        <span>Gestion de Capacitaciones</span>
+                </a>
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                        <span>Gestión Documental</span>
+                </a>
+                <a href="medica.html">
+                    <i class="bi bi-heart-pulse"></i>
+                        <span>Gestión Médica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gestion de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+
+            <!--Pie del sidebar-->
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="page-container">
+
+                <header class="surface topbar">
+                    <div class="topobar-left">
+                        <h2>Riesgos</h2>
+                    </div>
+                    <div class="topbar-center">
+                        <form class="search-form input-group">
+                            <i class="bi bi-search"></i>
+                            <input type="search" placeholder="Buscar...">
+                        </form>
+                    </div>
+                    <div class="topbar-right">
+                        <button class="notification-button">
+                            <i class="bi bi-bell"></i>
+                        </button>
+                        <div class="user-profile">
+                            <img src="../assets/img/avatar.png" alt="Usuario">
+                            <span class="user-name"> 
+                                Yohane Gualdron
+                            </span>
+                        </div>
+                    </div>
+
+                </header>
+                <header class="surface page-header">
+                    <div class="page-header-info">
+                        <h1>Gestión del Riesgo</h1>
+                        <p>Administre la identificación de peligros y valoración de riesgos conforme a la GTC-45.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button type="button" class="button-primary" id="consultar-gtc">
+                            <i class="bi bi-journal-text"></i>
+                            Consultar GTC 45
+                        </button>
+                        <button class="button button-primary" id="nueva-evaluacion">
+                            <i class="bi bi-plus-circle"></i>
+                            Nueva Evaluación
+                        </button>
+                    </div>
+                </header>
+
+                <section class="surface filter-bar">
+                    <form class="filter-form">
+                        <div class="form-group">
+                            <label for="buscar">Buscar</label>
+                            <div class="input-group">
+                                <i class="bi bi-search"></i>
+                                <input type="search" id="buscar" placeholder="Nombre del riesgo"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Área</label>
+                            <select id="area">
+                                <option>Todas</option>
+                                <option>Administrativa</option>
+                                <option>Producción</option>
+                                <option>Bodega</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel">Nivel</label>
+                            <select id="nivel">
+                                <option>Todos</option>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select id="estado">
+                                <option>Todos</option>
+                                <option>Activo</option>
+                                <option>Pendiente</option>
+                                <option>Cerrado</option>
+                            </select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="button button-primary" type="submit" id="btn-filtrar">
+                                <i class="bi bi-funnel"></i>
+                                Filtrar
+                            </button>
+                            <button type="button" class="button-primary" id="limpiar-filtros">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Limpiar
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="surface table-container">
+                    <table class="risk-table" id="tabla-riesgos">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Peligro / Riesgo</th>
+                                <th>Área</th>
+                                <th>Nivel</th>
+                                <th>Reportado por</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R-001</td>
+                                <td>Caída del mismo nivel</td>
+                                <td>Producción</td>
+                                <td>Alto</td>
+                                <td>Carlos Perez</td>
+                                <td>13/08/2026</td>
+                                <td><span class="status-danger">Activo</span></td>
+
+                                <td class="actions">
+                                    <button class="icon-button">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>R-002</td>
+                                <td>Exposición a ruidos</td>
+                                <td>Producción</td>
+                                <td>Medio</td>
+                                <td>Laura Gomez</td>
+                                <td>25/06/2026</td>
+                                <td><span class="status-warning">Pendiente</span></td>
+
+                                <td class="actions">
+                                    <button class="icon-button">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>R-003</td>
+                                <td>Manipulación de cargas</td>
+                                <td>Bodega</td>
+                                <td>Bajo</td>
+                                <td>Juan Rodriguez</td>
+                                <td>10/12/2026</td>
+                                <td><span class="status-success">Controlado</span></td>
+
+                                <td class="actions">
+                                    <button class="icon-button">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>        
+                    </table>
+                    <div class="pagination">
+                        <button class="pagination-button">
+                            <i class="bi bi-chevron-left"></i>
+                            Anterior
+                        </button>
+                        <button class="pagination-button active">
+                            1
+                        </button>
+                        <button class="pagination-button">
+                            2
+                        </button>
+                        <button class="pagination-button">
+                            3
+                        </button>
+                        <button class="pagination-button">
+                            Siguiente
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                </section>
+                
+            </div>
+        </main>
+    </div>
+<script src="../assets/js/riesgo.js"></script>
+</body>
+</html>

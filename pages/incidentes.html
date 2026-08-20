@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGRA - Incidentes</title>
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/riesgos.css">
+    <link rel="stylesheet" href="../assets/css/inspecciones.css">
+    <link rel="stylesheet" href="../assets/css/incidentes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"">
+
+</head>
+<body>
+
+    <div class="layout">
+        <aside class="sidebar">
+            
+            <!--Encabezado del Sidebar-->
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo Sigra">
+                <h2>SIGRA</h2>
+                <p>Seguridad, Salud en el Trabajo y Capacitaciones</p>
+            </div>
+
+            <!--Navegacion Principal-->
+            <nav class="menu">
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Gestion del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Gestion de Inspecciones</span>
+                </a>
+                <a href="incidentes.html" class="active">
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Gestion de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Gestion de Capacitaciones</span>
+                </a>
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Gestion Documental</span>
+                </a>
+                <a href="medica.html">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>Gestion Medica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gesdtion de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+
+            <!--Pie del Sidebar-->
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesion</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="surface topbar">
+                <div class="topbar-left">
+                    <h2>Incidentes</h2>
+                </div>
+                <div class="topbar-center">
+                    <form class="search-form input-group">
+                        <i class="bi bi-search"></i>
+                        <input type="search" placeholder="Buscar...">
+                    </form>
+                </div>
+                <div class="topbar-right">
+                    <button class="notification-button">
+                        <i class="bi bi-bell"></i>
+                    </button>
+                    <div class="user-profile">
+                        <img src="../assets/img/avatar.png" alt="Usuario">
+                        <span class="user-name">
+                            Yohane Gualdron
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <header class="surface page-header">
+                <div class="page-header-info">
+                    <h1>Gestion de Incidentes</h1>
+                    <p>Registro y seguimiento de actos y condiciones inseguras</p>
+                </div>
+                <div class="page-header-actions">
+                    <button class="button button-primary" id="nuevo incidente">
+                        <i class="bi bi-plus-circle"></i>
+                        Nuevo Incidente
+                    </button>
+                </div>
+            </header>
+
+            <section class="surface filter-bar">
+                <form class="filter-form">
+                    <div class="form-group">
+                        <label for="buscar-incidente">
+                            Buscar
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-search"></i>
+                            <input type="text" id="buscar-incidente" placeholder="Codigo o incidente">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-incidente">
+                            Tipo
+                        </label>
+                        <select id="tipo-incidente">
+                            <option value="">Todos</option>
+                            <option value="Planeada">Acto Inseguro</option>
+                            <option value="No planeada">Condicion Insegura</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="area-incidente">
+                            Area
+                        </label>
+                        <select id="area-incidente">
+                            <option value="">Todas</option>
+                            <option value="Produccion">Produccion</option>
+                            <option value="Bodega">Bodega</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Oficinas">Oficinas</option>
+                            <option value="Planta">Planta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-incidente">
+                            Estado
+                        </label>
+                        <select id="estado-inspeccion">
+                            <option value="">Todos</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En proceso">En proceso</option>
+                            <option value="Completada">Completado</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="button button-primary" type="button">
+                            <i class="bi bi-funnel"></i>
+                            Filtrar
+                        </button>
+                        <button class="button button-secondary" type="button">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            Limpiar
+                        </button>
+                    </div>
+                </form>
+            </section>
+        <main class="content">
+            <section class="cards">
+                <article class="card">
+                    <h3>Programar incidentes</h3>
+                    <p>Crear un nuevo reporte de incidentes.</p>
+                </article>
+                <article class="card">
+                    <h3>Consultar incidentes</h3>
+                    <p>Revisar los incidentes registrados en el sistema.</p>
+                </article>
+                <article class="card">
+                    <h3>Investigación</h3>
+                    <p>Analisar causas, consecuencias y acciones correctivas.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

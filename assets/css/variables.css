@@ -1,0 +1,45 @@
+/* ==================================
+VARIABLES GLOBALES DEL SISTEMA SIGRA
+==================================== */
+
+:root {
+    
+    /* Colores institucionales */
+    --color-primario: #0F4C81;
+    --color-primario-hover: #0B3D68;
+    --color-secundario: #2E7D32;
+    --color-advertencia: #F39C12;
+    --color-peligro: #C0392B;
+    --color-placeholder:#FAFAFA;
+
+    /* Colores de interfaz */
+    --color-fondo: #F4F6F9;
+    --color-superficie: #FFFFFF;
+
+    /* Bordes */
+    --color-borde: #D9E2EC;
+    --radio: 12px;
+
+    /* Sombras */
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-media: 0 8px 18px rgba(0, 0, 0, 0.12);
+
+    /* Tipografía */
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-texto: #2C3E50;
+    --color-texto-secundario: #060606;
+
+    /*Espaciados*/
+    --espaciado-xs: 5px;
+    --espaciado-sm: 10px;
+    --espaciado-md: 20px;
+    --espaciado-lg: 30px;
+    --espaciado-xl: 40px;
+
+    /* Tipografía */
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-body: 1rem;
+    --font-size-small: .875rem;
+    
+}
