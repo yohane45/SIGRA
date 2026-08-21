@@ -197,8 +197,6 @@ formularioRiesgo.addEventListener("submit", function(event){
     const codigo = document.querySelector("#risk-code").value.trim();
     const nombre = document.querySelector("#risk-name").value.trim();
     const area = document.querySelector("#area").value.trim();
-    
-    
     const reportadoPor = document.querySelector("#responsible").value.trim();
     const descripcion = document.querySelector("#description").value.trim();
     const medidasControl = document.querySelector("#control-measures").value.trim();

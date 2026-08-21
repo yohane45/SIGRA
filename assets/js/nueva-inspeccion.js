@@ -1,23 +1,26 @@
 const botonCancelar = document.querySelector("#cancelar-inspeccion");
-    botonCancelar.addEventListener("click", function(){
+botonCancelar.addEventListener("click", function(){
     window.location.href = "inspecciones.html";
 });
 // correcciones pendientes formulario//
-const formulario = document.querySelector("#form-nueva-inspeccion");
-formulario.addEventListener("submit", function(evento){
-    evento.preventDefault();
-    const tipo = document.querySelector("#tipo-inspeccion").value;
-    const area = document.querySelector("#area-inspeccion").value;
-    const fecha = document.querySelector("#fecha-inspeccion").value;
-    const responsable = document.querySelector("#responsable-inspeccion").value;
-    const objetivo = document.querySelector("#objetivo-inspeccion").value;
+const formularioInspeccion = document.querySelector("#form-nueva-inspeccion");
+
+formularioInspeccion.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const tipo = document.querySelector("#tipo-inspeccion").value.trim();
+    const area = document.querySelector("#area-inspeccion").value.trim();
+    const fecha = document.querySelector("#fecha-inspeccion").value.trim();
+    const responsable = document.querySelector("#responsable-inspeccion").value.trim();
+    const objetivo = document.querySelector("#objetivo-inspeccion").value.trim();
 
     if (
         tipo === "" ||
         area === "" ||
         fecha === "" ||
-        responsable.trim() === "" ||
-        objetivo.trim() === ""
+        responsable === "" ||
+        objetivo === ""
 
     ) {
         alert("Por favor, complete los campos obligatorios.");
