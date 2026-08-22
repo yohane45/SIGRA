@@ -55,6 +55,7 @@ evaluacionesGuardadas.forEach(function(evaluacion){
     }
     fila.innerHTML = `
     <td>${evaluacion.codigo}</td>
+    <td>${formatearFecha(evaluacion.fecha)}</td>
     <td>
     <strong>${evaluacion.nombre}</strong>
     <span class="peligro-detalle">
@@ -64,7 +65,7 @@ evaluacionesGuardadas.forEach(function(evaluacion){
     <td>${evaluacion.area}</td>
     <td>${evaluacion.nivelRiesgo}</td>
     <td>${evaluacion.reportadoPor}</td>
-    <td>${formatearFecha(evaluacion.fecha)}</td>
+    
     <td>
         <span class="status-danger">${evaluacion.estado}</span>
     </td>
@@ -112,10 +113,10 @@ formularioFiltros.addEventListener("submit", function(evento) {
 
         const celdas = fila.querySelectorAll("td");
 
-        const riesgo = celdas[1].textContent.toLowerCase();
-        const areaFila = celdas[2].textContent;
-        const nivelFila = celdas[3].textContent;
-        const estadoFila = celdas[5].textContent;
+        const riesgo = celdas[2].textContent.toLowerCase();
+        const areaFila = celdas[3].textContent;
+        const nivelFila = celdas[4].textContent;
+        const estadoFila = celdas[6].textContent;
 
         const coincideBusqueda = riesgo.includes(textoBuscar);
         const coincideArea = valorArea === "Todas" || areaFila === valorArea;
