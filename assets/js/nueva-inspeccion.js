@@ -2,7 +2,7 @@ const botonCancelar = document.querySelector("#cancelar-inspeccion");
 botonCancelar.addEventListener("click", function(){
     window.location.href = "inspecciones.html";
 });
-// correcciones pendientes formulario//
+// formulario//
 const formularioInspeccion = document.querySelector("#form-nueva-inspeccion");
 
 formularioInspeccion.addEventListener("submit", function(event){
