@@ -128,8 +128,10 @@
                         </label>
                         <select id="tipo-incidente">
                             <option value="">Todos</option>
-                            <option value="Planeada">Acto Inseguro</option>
-                            <option value="No planeada">Condicion Insegura</option>
+                            <option value="Accidente">Accidente</option>
+                            <option value="Incidente">Incidente</option>
+                            <option value="Acto inseguro">Acto Inseguro</option>
+                            <option value="Condicion insegura">Condicion Insegura</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -171,10 +173,6 @@
         <main class="content">
             <section class="cards">
                 <article class="card">
-                    <h3>Programar incidentes</h3>
-                    <p>Crear un nuevo reporte de incidentes.</p>
-                </article>
-                <article class="card">
                     <h3>Consultar incidentes</h3>
                     <p>Revisar los incidentes registrados en el sistema.</p>
                 </article>
@@ -182,6 +180,21 @@
                     <h3>Investigación</h3>
                     <p>Analisar causas, consecuencias y acciones correctivas.</p>
                 </article>
+            </section>
+            <section class="surface table-container">
+                <table class="risk-table" id="tabla-inspecciones">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Accidente / Incidente</th>
+                            <th>Area</th>
+                            <th>Nombre del Accidentado</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
             </section>
         </main>
     </div>
