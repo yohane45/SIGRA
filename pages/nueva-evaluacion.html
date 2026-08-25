@@ -72,42 +72,18 @@
             </div>
         </aside>
         <main class="content">
-        <header class="surface topbar">
-
-    <div class="topobar-left">
-        <h2>Gestión del Riesgo</h2>
-    </div>
-
-    <div class="topbar-center">
-        <form class="search-form input-group">
-            <i class="bi bi-search"></i>
-            <input type="search" placeholder="Buscar...">
-        </form>
-    </div>
-
-    <div class="topbar-right">
-
-        <button class="notification-button">
-            <i class="bi bi-bell"></i>
-        </button>
-
-        <div class="user-profile">
-            <img src="../assets/img/avatar.png" alt="Usuario">
-            <span class="user-name">
-                Yohane Gualdron
-            </span>
-        </div>
-
-    </div>
-
-</header>
-        
-    <section class="surface page-header">
-            <div class="page-header-info">
-                <h1>Nueva Evaluación de Riesgo</h1>
-                <p>Registre la información necesaria para identificar, valorar y gestionar el riesgo.</p>
+            <header class="surface page-header">
+                <div class="page-header-info">
+                    <h1>Nueva Evaluación de Riesgo</h1>
+                    <p>Registre la información necesaria para identificar, valorar y gestionar el riesgo.</p>
+                </div>
+                <div class="page-header-actions">
+                    <button type="button" class="button button-secundary" id="cancelar-evaluacion">
+                    <i class="bi bi-arrow-left"></i>
+                    Cancelar
+                </button>
             </div>
-        </section>
+        </header>    
         <section class="surface">
             <form class="risk-form" id="formulario-riesgo">
                 <div class="form-group">
@@ -276,9 +252,9 @@
 </div>
 
 <div class="form-actions">
-    <button type="button" class="button-secundary" id="cancelar-evaluacion">
-        <i class="bi bi-x-circle"></i>
-        Cancelar
+    <button type="reset" class="button-secundary">
+        <i class="bi bi-arrow-counterclockwise"></i>
+        Limpiar
     </button>
     <button type="submit" class="button-primary">
         <i class="bi bi-check-circle"></i>
