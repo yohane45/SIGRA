@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/riesgos.css">
     <link rel="stylesheet" href="../assets/css/inspecciones.css">
     <link rel="stylesheet" href="../assets/css/incidentes.css">
-    <script src="../assets/js/incidentes.js"defer></script>
+    <script src="../assets/js/incidentes.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
@@ -105,6 +105,10 @@
                     <p>Registro y seguimiento de actos y condiciones inseguras</p>
                 </div>
                 <div class="page-header-actions">
+                    <button type="button" class="button-primary" id="marco-normativo">
+                        <i class="bi bi-journal-text"></i>
+                        Marco Normativo
+                    </button>
                     <button class="button button-primary" id="nuevo-incidente">
                         <i class="bi bi-plus-circle"></i>
                         Nuevo Incidente
@@ -197,6 +201,38 @@
                     </thead>
                 </table>
             </section>
+            <!-- Modal Marco Normativo -->
+        <div class="modal-overlay" id="modal-marco-normativo">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Marco Normativo</h2>
+                    <button type="button" class="modal-close" id="cerrar-marco-normativo">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Consulte la normatividad relacionada con la gestion de incidentes</p>
+                    <div class="normatividad-lista">
+                        <a href="../assets/docs/Resolucion1401_2007.pdf" target="_blank" class="normative-document">
+                            <i class="bi bi-file-earmark-pdf"></i>
+                            <div>
+                                <strong>Resolucion 1401 de 2007</strong>
+                                <span>Investigación de incidentes y accidentes de trabajo</span>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                        <a href="../assets/docs/Resolucion1890_2025.pdf" target="_blank" class="normative-document">
+                            <i class="bi bi-file-earmark-pdf"></i>
+                            <div>
+                                <strong>Resolucion 1890 de 2025</strong>
+                                <span>Procedimiento para el registro de incidentes y reporte de accidentes mayores</span>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>    
         </main>
     </div>
 
