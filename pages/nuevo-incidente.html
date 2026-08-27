@@ -91,6 +91,7 @@
                         <h2>Informacion general</h2>
                         <p>Registre la informacion básica correspondiente al incidente.</p>
                     </div>
+                <div class="informacion-grid">    
                     <div class="form-group">
                         <label for="tipo-incidente">
                             Tipo Incidente
@@ -98,24 +99,12 @@
                         <div class="input-group">
                             <i class="bi bi-exclamation-triangle"></i>
                             <select id="tipo-incidente" name="tipo-incidente">
-                                <option value="">
-                                    Seleccione un Tipo
-                                </option>
-                                <option value="Accidente">
-                                    Accidente
-                                </option>
-                                <option value="Incidente">
-                                    Incidente
-                                </option>
-                                <option value="Accidente Leve">
-                                    Accidente Leve
-                                </option>
-                                <option value="Accidente Grave">
-                                    Accidente Grave
-                                </option>
-                                <option value="Accidente Mortal">
-                                    Accidente Mortal
-                                </option>
+                                <option value="">Seleccione un Tipo</option>
+                                <option value="Accidente">Accidente</option>
+                                <option value="Incidente">Incidente</option>
+                                <option value="Accidente Leve">Accidente Leve</option>
+                                <option value="Accidente Grave">Accidente Grave</option>
+                                <option value="Accidente Mortal">Accidente Mortal</option>
                             </select>
                         </div>
                     </div>
@@ -126,24 +115,12 @@
                         <div class="input-group">
                             <i class="bi bi-building"></i>
                             <select id="area-incidente" name="area-incidente">
-                                <option value="">
-                                    Seleccione un área
-                                </option>
-                                <option value="Produccion">
-                                    Producción
-                                </option>
-                                <option value="Bodega">
-                                    Bodega
-                                </option>
-                                <option value="Mantenimiento">
-                                    Mantenimiento
-                                </option>
-                                <option value="Oficinas">
-                                    Oficinas
-                                </option>
-                                <option value="Planta">
-                                    Planta
-                                </option>
+                                <option value="">Seleccione un área</option>
+                                <option value="Produccion">Producción</option>
+                                <option value="Bodega">Bodega</option>
+                                <option value="Mantenimiento">Mantenimiento</option>
+                                <option value="Oficinas">Oficinas</option>
+                                <option value="Planta">Planta</option>
                             </select>
                         </div>
                     </div>
@@ -174,6 +151,7 @@
                             <input type="text" id="lugar-incidente" name="lugar-incidente" placeholder="Lugar donde ocurrio el incidente">
                         </div>
                     </div>
+                </div>    
                     <div class="form-group">
                         <label for="descripcion-incidente">
                             Descripción del Incidente
@@ -203,7 +181,7 @@
                     ></textarea>
                 </div>
                 <div class="form-section-title">
-                    <h2>Análisis de causas - Ishikawa</h2>
+                    <h2>Análisis de causas - Diagrama Ishikawa (Espina de Pescado)</h2>
                     <p>
                         Identifique las posibles causas relacionadas con cada categoria
                     </p>

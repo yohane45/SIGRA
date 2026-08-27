@@ -28,3 +28,46 @@ incident-section {
         grid-template-columns: 1fr;
     }
 }
+.informacion-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--espaciado-md);
+}
+
+.informacion-grid .form-group {
+    margin-bottom: 0;
+}
+
+.informacion-grid .form-group:nth-child(1),
+.informacion-grid .form-group:nth-child(2),
+.informacion-grid .form-group:nth-child(3) {
+    grid-column: span 2;
+}
+
+.informacion-grid .form-group:nth-child(4),
+.informacion-grid .form-group:nth-child(5) {
+    grid-column: span 3;
+}
+@media (max-width: 900px) {
+
+    .informacion-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .informacion-grid .form-group:nth-child(1),
+    .informacion-grid .form-group:nth-child(2),
+    .informacion-grid .form-group:nth-child(3),
+    .informacion-grid .form-group:nth-child(4),
+    .informacion-grid .form-group:nth-child(5) {
+        grid-column: span 1;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .informacion-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
