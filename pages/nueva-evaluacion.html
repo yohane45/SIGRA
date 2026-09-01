@@ -86,67 +86,78 @@
         </header>    
         <section class="surface">
             <form class="risk-form" id="formulario-riesgo">
+                <div class="informacion-riesgo-grid">
+                    <div class="form-group">
+                        <label for="risk-code">
+                            Código del riesgo
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-hash"></i>
+                            <input type="text" id="risk-code"
+                            name="risk-code" placeholder="Ej. R-004"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-peligro">
+                            Clasificación del peligro
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-list-check"></i>
+                            <select id="tipo-peligro" name="tipo-peligro">
+                                <option value="">Seleccione una clasificación</option>
+                                <option value="Biologico">Biológico</option>
+                                <option value="Fisico">Físico</option>
+                                <option value="Quimico">Químico</option>
+                                <option value="Psicosocial">Psicosocial</option>
+                                <option value="Biomecanicos">Biomecánicos</option>
+                                <option value="Condiciones de seguridad">Condiciones de seguridad</option>
+                                <option value="Fenomenos naturales">Fenómenos naturales</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion-peligro">
+                            Descripción del peligro
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-card-text"></i>
+                            <select id="descripcion-peligro" name="descripcion-peligro">
+                                <option value="">Seleccione primero una clasificación</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="risk-name">
+                            Nombre del riesgo
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-exclamation-triangle"></i>
+                            <input type="text" id="risk-name"
+                            name="risk-name" placeholder="Ej. Caída del mismo nivel"
+                        >
+                    </div>
+                </div>
                 <div class="form-group">
-                <label for="risk-code">
-                    Código del riesgo
-                </label>
-        <div class="input-group">
-            <i class="bi bi-hash"></i>
-            <input type="text" id="risk-code" name="risk-code" placeholder="Ej. R-004">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="tipo-peligro">
-            Clasificacion del peligro
-        </label>
-        <div class="input-group">
-            <i class="bi bi-list-check"></i>
-            <select id="tipo-peligro" name="tipo-peligro">
-                <option value="">Seleccione una clasificacion</option>
-                <option value="Biologico">Biologico</option>
-                <option value="Fisico">Fisico</option>
-                <option value="Quimico">Quimico</option>
-                <option value="Psicosocial">Psicosocial</option>
-                <option value="Biomecanicos">Biomecanicos</option>
-                <option value="Condiciones de seguridad">Condiciones de seguridad</option>
-                <option value="Fenomenos naturales">Fenomenos naturales</option>
-            </select>
-        </div>
-        <label for ="descripcion-peligro">
-            Descripcion del peligro
-        </label>
-        <div class="input-group">
-            <i class="bi bi-card-text"></i>
-            <select id="descripcion-peligro" name="descripcion-peligro">
-                <option value="">Seleccione primero una clasificacion</option>
-            </select>
-        </div>
-        <label for="risk-name">
-            Nombre del riesgo
-        </label>
-        <div class="input-group">
-            <i class="bi bi-exclamation-triangle"></i>
-            <input type="text" id="risk-name" name="risk-name" placeholder="Ej. Caída del mismo nivel">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="area">
-            Área
-        </label>
-        <div class="input-group">
-            <i class="bi bi-building"></i>
-            <input type="text" id="area" name="area" placeholder="Ej. Producción">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="risk-level">
-            Nivel del Riesgo
-        </label>
-        <!--Valoracion GTC 45-->
+                    <label for="area">
+                        Área
+                    </label>
+                    <div class="input-group">
+                        <i class="bi bi-building"></i>
+                        <input type="text" id="area"
+                        name="area" placeholder="Ej. Producción"
+                        >
+                    </div>
+                </div>
+            </div>
+                
+<!--Valoracion GTC 45-->
+
         <div class="form-section-title">
             <h2>Valoracion del Riesgo - GTC 45</h2>
             <p>Seleccione los parametros de valoracion. SIGRA calculara automaticamente el nivle de probabilidad y posteriormente el nivel de riesgo.</p>
         </div>
+    <div class="valoracion-riesgo-grid">    
         <div class="form-group">
             <label for="deficiency-level">
                 Nivel de Deficiencia (ND)
@@ -182,7 +193,10 @@
             </label>
             <div class="input-group">
                 <i class="bi bi-graph-up"></i>
-                <input type="text" id="probability-level" name="probability-level" placeholder="Se calculara automaticamente" readonly>
+                <input type="text" id="probability-level" 
+                name="probability-level" placeholder="Se calculara automaticamente" 
+                readonly
+                >
             </div>
         </div>
         <div class="form-group">
@@ -206,7 +220,10 @@
             </label>
             <div class="input-group">
                 <i class="bi bi-shield-exclamation"></i>
-                <input type="text" id="risk-result" name="risk-result" placeholder="Se calculara automaticamente" readonly>
+                <input type="text" id="risk-result" 
+                name="risk-result" placeholder="Se calculara automaticamente" 
+                readonly
+                >
             </div>
         </div>
         <div class="form-group">
@@ -215,29 +232,44 @@
             </label>
             <div class="input-group">
                 <i class="bi bi-info-circle"></i>
-                <input type="text" id="risk-interpretation" name="risk-interpretation" placeholder="Se calculara automaticamente" readonly>
+                <input type="text" id="risk-interpretation" 
+                name="risk-interpretation" placeholder="Se calculara automaticamente" 
+                readonly
+                >
             </div>
         </div>
+    </div>    
+    <div class="informacion-final-grid">
+
     <div class="form-group">
-    <label for="responsible">
-        Nombre de quien reporta
-    </label>
-    <div class="input-group">
-        <i class="bi bi-person"></i>
-        <input type="text" id="responsible" name="responsible" placeholder="Ej. Carlos Perez">
+        <label for="responsible">
+            Nombre de quien reporta
+        </label>
+
+        <div class="input-group">
+            <i class="bi bi-person"></i>
+
+            <input
+                type="text" id="responsible"
+                name="responsible" placeholder="Ej. Carlos Perez"
+            >
+        </div>
     </div>
+
+    <div class="form-group">
+        <label for="description">
+            Descripción del riesgo
+        </label>
+
+        <textarea
+            id="description" name="description"
+            rows="3" placeholder="Describa el riesgo identificado"
+        >
+    </textarea>
+    </div>
+
 </div>
-<div class="form-group">
-    <label for="description">
-        Descripción del riesgo
-    </label>
-    <textarea 
-        id="description" 
-        name="description" 
-        rows="4" 
-        placeholder="Describa el riesgo identificado"
-    ></textarea>
-</div>
+
 <div class="form-group">
     <label for="control-measures">
         Medidas de Intervención
@@ -248,7 +280,8 @@
         name="control-measures"
         rows="4"
         placeholder="Describa las medidas de intervención propuestas para controlar o reducir el riesgo..."
-></textarea>
+    >
+</textarea>
 </div>
 
 <div class="form-actions">

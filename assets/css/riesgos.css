@@ -184,3 +184,82 @@
     font-size: 0.85rem;
     color: var(--color-texto-secundario);
 }
+/* Distribución de información general */
+
+.informacion-riesgo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaciado-md);
+}
+
+.informacion-riesgo-grid .form-group {
+    margin-bottom: 0;
+}
+
+/* Titulo de valoracion GTC 45 */
+.form-section-title {
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+.form-section-title h2 {
+    margin-bottom: 6px;
+}
+.form-section-title p {
+    margin-bottom: 0;
+}
+
+/* Distribución de valoración GTC 45 */
+
+.informacion-final-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--espaciado-md);
+    margin-top: 18px;
+}
+
+.informacion-final-grid .form-group {
+    margin-bottom: 0;
+}
+
+.valoracion-riesgo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaciado-md);
+    margin-top: 12px;
+}
+
+.valoracion-riesgo-grid .form-group {
+    margin-bottom: 0;
+}
+@media (max-width: 900px) {
+
+    .informacion-riesgo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .valoracion-riesgo-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .informacion-riesgo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.informacion-final-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--espaciado-md);
+}
+.informacion-final-grid .form-group {
+    margin-bottom: 0;
+}
+@media (max-width: 600px) {
+
+    .informacion-final-grid {
+        grid-template-columns: 1fr;
+    }
+}
