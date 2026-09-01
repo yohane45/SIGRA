@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../assets/css/variables.css">
         <link rel="stylesheet" href="../assets/css/styles.css">
         <link rel="stylesheet" href="../assets/css/components.css">
-        <link rel="stylesheet" href="../assets/css/riesgos.css">
+        <link rel="stylesheet" href="../assets/css/inspecciones.css">
         <script src="../assets/js/nueva-inspeccion.js" defer></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
@@ -87,6 +87,7 @@
                 <section class="surface">
                     <form id="form-nueva-inspeccion" novalidate>
                         <h2>Información general</h2>
+                    <div class="informacion-inspeccion-grid">    
                         <div class="form-group">
                             <label for="tipo-inspeccion">
                                 Tipo inspección
@@ -115,7 +116,9 @@
                                     <option value="Planta">Planta</option>
                                 </select>
                             </div>
-                        </div>    
+                        </div>
+                    </div>    
+                        <div class="informacion-inspeccion-grid">    
                         <div class="form-group">
                             <label for="fecha-inspeccion">
                                 Fecha inspección
@@ -133,7 +136,8 @@
                             <i class="bi bi-person"></i>
                             <input type="text" id="responsable-inspeccion" name="responsable-inspeccion" placeholder="Nombre del responsable" required>
                         </div>
-                    </div>    
+                    </div>
+                        </div>        
                         <div class="form-group">
                             <label for="objetivo-inspeccion">
                                 Objetivo de la inspección

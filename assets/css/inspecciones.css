@@ -209,3 +209,25 @@
     border-color: var(--color-primario);
     background: var(--color-fondo);
 }
+/* Formulario Nueva Inspección */
+
+.informacion-inspeccion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaciado-md);
+    margin-bottom: 16px;
+}
+
+.form-nueva-inspeccion h2 {
+    margin-bottom: 14px;
+}
+
+.informacion-inspeccion-grid .form-group {
+    margin-bottom: 0;
+}
+@media (max-width: 600px) {
+
+    .informacion-inspeccion-grid {
+        grid-template-columns: 1fr;
+    }
+}
