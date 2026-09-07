@@ -4,54 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGRA - Capacitaciones</title>
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
     <div class="layout">
         <aside class="sidebar">
+            
+            <!--Encabezado del Sidebar-->
             <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo Sigra">
                 <h2>SIGRA</h2>
-                <p>Seguridad y Salud en el Trabajo</p>
+                <p>Seguridad, Salud en el Trabajo y Capacitaciones</p>
             </div>
 
+            <!--Navegacion Principal-->
             <nav class="menu">
-                <a href="../index.html">Dashboard</a>
-                <a href="riesgos.html">Gestión del Riesgo</a>
-                <a href="inspecciones.html">Inspecciones</a>
-                <a href="incidentes.html">Incidentes</a>
-                <a class="active" href="capacitaciones.html">Capacitaciones</a>
-                <a href="documental.html">Gestión Documental</a>
-                <a href="medica.html">Médica Ocupacional</a>
-                <a href="indicadores.html">Indicadores</a>
-                <a href="perfil.html">Perfil de Usuario</a>
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Gestion del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Gestion de Inspecciones</span>
+                </a>
+                <a href="incidentes.html" >
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Gestion de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html" class="active">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Gestion de Capacitaciones</span>
+                </a>
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Gestion Documental</span>
+                </a>
+                <a href="medica.html">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>Gestion Medica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gestion de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
             </nav>
+
+            <!--Pie del Sidebar-->
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesion</span>
+                </a>
+            </div>
         </aside>
 
         <main class="content">
-            <header class="topbar">
-                <div>
-                    <h1>Capacitaciones</h1>
-                    <p>Administración de procesos de formación y entrenamientos.</p>
+            <header class="surface topbar">
+                <div class="topbar-left">
+                    <h2>Capacitaciones</h2>
+                </div>
+                <div class="topbar-center">
+                    <form class="search-form input-group">
+                        <i class="bi bi-search"></i>
+                        <input type="search" placeholder="Buscar...">
+                    </form>
+                </div>
+                <div class="topbar-right">
+                    <button class="notification-button">
+                        <i class="bi bi-bell"></i>
+                    </button>
+                    <div class="user-profile">
+                        <img src="../assets/img/avatar.png" alt="Usuario">
+                        <span class="user-name">
+                            Yohane Gualdron
+                        </span>
+                    </div>
                 </div>
             </header>
 
-            <section class="cards">
-                <article class="card">
-                    <h3>Programar capacitaciones</h3>
-                    <p>Crear una nueva actividad de formación.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Consultar capacitaciones</h3>
-                    <p>Ver el historial de capacitaciones realizadas.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Asistencia</h3>
-                    <p>Registrar la participación de los usuarios en las capacitaciones.</p>
-                </article>
-            </section>
+            <header class="surface page-header">
+                <div class="page-header-info">
+                    <h1>Gestión de Capacitaciones</h1>
+                    <p>Administrar las actividades de formación y entrenamiento del personal.</p>
+                </div>
+            
+                <div class="page-header-actions">
+                    <button class="btn btn-primary" id="nueva-capacitacion">
+                        <i class="bi bi-plus-circle"></i>
+                        Nueva Capacitación
+                    </button>
+                    <button class="btn btn-secondary" id="marco-normativo">
+                        <i class="bi bi-file-earmark-text"></i>
+                        Marco Normativo
+                    </button>
+                </div>
+            </header>
+            
+            <section class="surface table-container">
+                <div class="table-header">
+                    <h2>Capacitaciones</h2>
+                    <p>Listado de capacitaciones programadas y realizadas</p>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="risk-table" id="tabla-capacitaciones">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Tema</th>
+                            <th>Tipo</th>
+                            <th>Área</th>
+                            <th>Responsable</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las capacitaciones se cargaran postriormente -->
+                    </tbody>
+                </table>
+            </div>    
+        </section>
         </main>
     </div>
 
