@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>SIGRA - Nueva Capacitación</title>
+
+        <link rel="stylesheet" href="../assets/css/variables.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="../assets/css/components.css">
+        <link rel="stylesheet" href="../assets/css/nueva-capacitacion.css">
+        <script src="../assets/js/nueva-capacitacion.js" defer></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+        <div class="layout">
+        <!-- Sidebar -->    
+        <aside class="sidebar">
+            
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo SIGRA">
+                <h2>SIGRA</h2>
+                <p>Seguridad, Salud en el Trabajo Y Capacitaciones</p>
+            </div>
+            <nav class="menu">
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                </a>
+                <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                        <span>Gestión del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                        <span> Gestion de Inspecciones</span>
+                </a>
+                <a href="incidentes.html">
+                    <i class="bi bi-file-earmark-medical"></i>
+                        <span>Gestión de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html"class="active">
+                    <i class="bi bi-mortarboard"></i>
+                        <span>Gestión de Capacitaciones</span>
+                </a>
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                        <span>Gestión Documental</span>
+                </a>
+                <a href="medica.html">
+                    <i class="bi bi-heart-pulse"></i>
+                        <span>Gestión Médica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                        <span>Gestión de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                        <span>Perfil</span>
+                </a>
+            </nav>
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            <div class="page-container">
+                <header class="surface page-header">
+                    <div class="page-header-info">
+                        <h1>Nueva Capacitación</h1>
+                        <p>Registre la información correspondiente a la capacitación.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button type="button" class="button button-secundary" id="cancelar-capacitacion">
+                        <i class="bi bi-arrow-left"></i>
+                        Cancelar
+                    </button>    
+                </div>
+            </header>
+            <section class="surface">
+                <form id="form-section-capacitacion">
+                    <div class="form-section-title">
+                        <h2>Información general</h2>
+                        <p>Ingrese los datos básicos de la capacitación.</p>
+                    </div>
+                    <div class="informacion-capacitacion-grid">
+                        <div class="form-group">
+                            <label for="tema-capacitacion">
+                                Tema de la capacitación
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-journal-text"></i>
+                                <input type="text" id="tema-capacitacion" name="tema-capacitacion"
+                                placeholder="Ej. Trabajo seguro en alturas" 
+                                required
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-capacitacion">
+                                Tipo de capacitación
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-mortarboard"></i>
+                                <select id="tipo-capacitacion" name="tipo-capacitacion"
+                                required
+                                >
+                                    <option value="">Seleccione un tipo</option>
+                                    <option value="induccion">Inducción</option>
+                                    <option value="reinduccion">Reinducción</option>
+                                    <option value="capacitacion-especializada">Capacitación Especializada</option>
+                                    <option value="entrenamiento">Entrenamiento</option>
+                                </select>    
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area-capacitacion">
+                                Área
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-building"></i>
+                                <select id="area-capacitacion" name="area-capacitacion"
+                                required
+                                >
+                                    <option value="">Seleccione un área</option>
+                                    <option value="produccion">Producción</option>
+                                    <option value="bodega">Bodega</option>
+                                    <option value="mantenimiento">Mantenimiento</option>
+                                    <option value="oficinas">Oficinas</option>
+                                    <option value="planta">Planta</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-capacitacion">
+                                Fecha
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-calendar-event"></i>
+                                <input type="date" id="fecha-capacitacion" name="fecha-capacitacion"
+                                required
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora-capacitacion">
+                                Hora
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-clock"></i>
+                                <input type="time" id="hora-capacitacion" name="hora-capacitacion"
+                                required
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="responsable-capacitacion">
+                                Responsable
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-person"></i>
+                                <input type="text" id="Nombre del responsable" name="responsable-capacitacion"
+                                placeholder="Nombre del responsable"
+                                required
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section-title">
+                        <h2>Información de la Capacitación</h2>
+                        <p>Ingrese los detalles de la actividad de formación</p>
+                    </div>
+                    <div class="detalle-capacitacion-grid">
+                        <div class="form-group">
+                            <label for="modalidad-capacitacion">
+                                Modalidad
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-laptop"></i>
+                                <select id="modalidad-capacitacion" name="modalidad-capacitacion"
+                                required
+                                >
+                                    <option value="">Seleccione una modalidad</option>
+                                    <option value="presencial">Presencial</option>
+                                    <option value="virtual">Virtual</option>
+                                    <option value="mixta">Mixta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duracion-capacitacion">
+                            Duración
+                        </label>
+                        <div class="input-group">
+                            <i class="bi bi-hourglass-split"></i>
+                            <input type="number" id="duracion-capacitacion" name="duracion-capacitacion"
+                            placeholder="Ej. 2" min="1" max="8"
+                            required
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="objetivo-capacitacion">
+                        Objetivo
+                    </label>
+                    <div class="input-group">
+                        <i class=" bi bi-bullseye"></i>
+                        <textarea id="objetivo-capacitacion" name="objetivo-capacitacion"
+                        rows="3" placeholder="Describa el objetivo de la capacitación"
+                        required
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion-capacitacion">
+                        Descripción
+                    </label>
+                    <div class="input-group">
+                        <i class="bi bi-card-text"></i>
+                        <textarea id="descripcion-capacitacion" name="descripcion-capacitacion"
+                        rows="4" placeholder="Describa los contenidos o actividades de la capacitación"
+                        required
+                        ></textarea>
+                    </div>
+                </div>
+            </form>
+        </section>

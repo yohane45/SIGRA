@@ -1,0 +1,302 @@
+/* =========================================
+CAPACITACIONES - FILTROS
+   ========================================= */
+
+.filter-bar {
+    margin-bottom: var(--espaciado-lg);
+}
+
+.filter-form {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--espaciado-md);
+    flex-wrap: wrap;
+}
+
+.filter-form .form-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-form label {
+    display: block;
+    margin-bottom: var(--espaciado-sm);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+/* Campos select del filtro */
+
+.filter-form select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+}
+
+/* Campo de búsqueda dentro del input-group */
+
+.filter-form .input-group input {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 0 14px 0 40px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+.filter-form .input-group {
+    position: relative;
+}
+
+.filter-form .input-group i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-texto);
+    pointer-events: none;
+}
+
+.filter-form .input-group input {
+    padding-left: 40px;
+}
+
+
+/* =========================================
+BOTONES DE FILTRO
+   ========================================= */
+
+.filter-actions {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--espaciado-sm);
+    flex-shrink: 0;
+}
+
+.filter-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    color: var(--color-superficie);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color .3s ease, transform .2s ease;
+}
+
+.filter-actions .button:hover {
+    transform: translateY(-1px);
+}
+
+.filter-actions .button-primary {
+    background-color: var(--color-primario);
+}
+
+.filter-actions .button-secundary {
+    background-color: var(--color-primario);
+}
+
+
+/* =========================================
+TABLA DE CAPACITACIONES
+   ========================================= */
+
+.table-container {
+    border-left: 4px solid var(--color-primario);
+    border-radius: var(--radio);
+}
+
+.risk-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.risk-table th {
+    background: var(--color-primario);
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.risk-table th:first-child {
+    border-top-left-radius: var(--radio);
+}
+
+.risk-table th:last-child {
+    border-top-right-radius: var(--radio);
+}
+
+.risk-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.risk-table tbody tr:hover {
+    background: var(--color-fondo);
+}
+
+
+/* =========================================
+ACCIONES DE LA TABLA
+   ========================================= */
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--radio);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.icon-button:hover {
+    background: var(--color-primario);
+    color: white;
+}
+
+
+/* =========================================
+ESTADOS
+   ========================================= */
+
+.status-success,
+.status-warning,
+.status-danger {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-success {
+    background: rgba(46, 125, 50, .12);
+    color: var(--color-secundario);
+}
+
+.status-warning {
+    background: rgba(243, 156, 18, .15);
+    color: var(--color-adevertencia);
+}
+
+.status-danger {
+    background: rgba(192, 57, 43, .12);
+    color: var(--color-peligro);
+}
+
+
+/* =========================================
+PAGINACIÓN
+   ========================================= */
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--espaciado-xs);
+    margin-top: var(--espaciado-md);
+}
+
+.pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaciado-xs);
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.pagination-button:hover,
+.pagination-button.active {
+    background: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+
+/* =========================================
+RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .filter-form {
+        flex-wrap: wrap;
+    }
+
+    .filter-form .form-group {
+        flex: 1 1 calc(50% - var(--espaciado-md));
+    }
+
+    .filter-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-form .form-group {
+        width: 100%;
+    }
+
+    .filter-actions {
+        width: 100%;
+    }
+
+    .filter-actions .button {
+        flex: 1;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+}

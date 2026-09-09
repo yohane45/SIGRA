@@ -1,0 +1,33 @@
+.informacion-capacitacion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaciado-md);
+    margin-top: 14px;
+}
+.informacion-capacitacion-grid .form-group {
+    margin-bottom: 0;
+}
+.detalle-capacitacion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaciado-md);
+    margin-top: 14px;
+}
+
+.detalle-capacitacion-grid .form-group {
+    margin-bottom: 0;
+}
+#objetivo-capacitacion,
+#descripcion-capacitacion {
+    flex: 1;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    resize: vertical;
+}
+.informacion-capacitacion-grid + .form-section-title {
+    margin-top: 24px;
+}

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/components.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../assets/css/capacitaciones.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -102,23 +102,77 @@
                 </div>
             
                 <div class="page-header-actions">
-                    <button class="btn btn-primary" id="nueva-capacitacion">
+                    <button class="button button-primary" id="nueva-capacitacion">
                         <i class="bi bi-plus-circle"></i>
                         Nueva Capacitación
                     </button>
-                    <button class="btn btn-secondary" id="marco-normativo">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <button class="button button-secundary" id="marco-normativo">
+                        <i class="bi bi-journal-text"></i>
                         Marco Normativo
                     </button>
+                
                 </div>
             </header>
-            
+            <section class="surface filter-bar">
+                <form class="filter-form">
+                    <div class="form-group">
+                        <label for="buscar-capacitacion">
+                            Buscar
+                        </label>
+                        <div class="input-group">
+                            <i class=" bi bi-search"></i>
+                            <input type="text" id="buscar-capacitacion" placeholder="Tema">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-capacitacion">
+                            Tipo
+                        </label>
+                        <select id="tipo-capacitacion">
+                            <option value="">Todos</option>
+                            <option value="Induccion">Inducción</option>
+                            <option value="Reinduccion">Reinducción</option>
+                            <option value="Capacitacion-Especializada">Capacitación Especializada</option>
+                            <option value="Entrenamiento">Entrenamiento</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="area-capacitacion">
+                            Área
+                        </label>
+                        <select id="area-capacitacion">
+                            <option value="">Todas</option>
+                            <option value="Produccion">Producción</option>
+                            <option value="Bodega">Bodega</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Oficinas">Oficinas</option>
+                            <option value="Planta">Planta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-capacitacion">
+                            Estado
+                        </label>
+                        <select id="estado-capacitacion">
+                            <option value="">Todos</option>
+                            <option value="Programada">Programada</option>
+                            <option value="Realizada">Realizada</option>
+                            <option value="Cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="button button-primary" type="button">
+                            <i class="bi bi-funnel"></i>
+                            Filtrar
+                        </button>
+                        <button class="button button-secundary" type="button">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            Limpiar
+                        </button>
+                    </div>
+                </form>
+            </section>
             <section class="surface table-container">
-                <div class="table-header">
-                    <h2>Capacitaciones</h2>
-                    <p>Listado de capacitaciones programadas y realizadas</p>
-                </div>
-            </div>
             <div class="table-responsive">
                 <table class="risk-table" id="tabla-capacitaciones">
                     <thead>
@@ -128,16 +182,67 @@
                             <th>Tema</th>
                             <th>Tipo</th>
                             <th>Área</th>
+                            <th>Modalidad</th>
                             <th>Responsable</th>
                             <th>Estado</th>
+                            <th>% Cumplimiento</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Las capacitaciones se cargaran postriormente -->
-                    </tbody>
-                </table>
-            </div>    
+                    
+    <tr>
+        <td>CP-001</td>
+        <td>25/08/2026</td>
+        <td>Inducción SST</td>
+        <td>Inducción</td>
+        <td>Oficinas</td>
+        <td>Presencial</td>
+        <td>Andres Perez</td>
+        <td>
+            <span class="status-danger">Cancelada</span>
+        </td>
+        <td>1%</td>
+        <td class="actions">
+            <button class="icon-button" title="Ver">
+                <i class="bi bi-eye"></i>
+            </button>
+
+            <button class="icon-button" title="Editar">
+                <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button class="icon-button" title="Eliminar">
+                <i class="bi bi-trash"></i>
+            </button>
+
+            <button class="icon-button" title="Asistencia">
+                <i class="bi bi-people"></i>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+        </table>
+        <div class="pagination">
+                        <button class="pagination-button">
+                            <i class="bi bi-chevron-left"></i>
+                            Anterior
+                        </button>
+                        <button class="pagination-button active">
+                            1
+                        </button>
+                        <button class="pagination-button">
+                            2
+                        </button>
+                        <button class="pagination-button">
+                            3
+                        </button>
+                        <button class="pagination-button">
+                            Siguiente
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+        </div>    
         </section>
         </main>
     </div>
