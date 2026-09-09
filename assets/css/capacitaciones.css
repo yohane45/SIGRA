@@ -25,7 +25,9 @@ CAPACITACIONES - FILTROS
     font-weight: 600;
     color: var(--color-texto);
 }
-/* Campos select del filtro */
+/* =========================
+CAMPO SELECT DEL FILTRO
+    ============================ */
 
 .filter-form select {
     width: 100%;
@@ -40,7 +42,9 @@ CAPACITACIONES - FILTROS
     font-size: 14px;
 }
 
-/* Campo de búsqueda dentro del input-group */
+/* ============================
+CAMPO DE BUSQUEDA DENTRO DEL INPUT-GROUP
+    =============================== */
 
 .filter-form .input-group input {
     width: 100%;
@@ -120,7 +124,6 @@ BOTONES DE FILTRO
     background-color: var(--color-primario);
 }
 
-
 /* =========================================
 TABLA DE CAPACITACIONES
    ========================================= */
@@ -159,7 +162,6 @@ TABLA DE CAPACITACIONES
     background: var(--color-fondo);
 }
 
-
 /* =========================================
 ACCIONES DE LA TABLA
    ========================================= */
@@ -187,7 +189,6 @@ ACCIONES DE LA TABLA
     background: var(--color-primario);
     color: white;
 }
-
 
 /* =========================================
 ESTADOS
@@ -217,7 +218,6 @@ ESTADOS
     background: rgba(192, 57, 43, .12);
     color: var(--color-peligro);
 }
-
 
 /* =========================================
 PAGINACIÓN
@@ -255,7 +255,6 @@ PAGINACIÓN
     border-color: var(--color-primario);
 }
 
-
 /* =========================================
 RESPONSIVE
    ========================================= */
@@ -275,7 +274,6 @@ RESPONSIVE
         justify-content: flex-end;
     }
 }
-
 
 @media (max-width: 600px) {
 
@@ -299,4 +297,101 @@ RESPONSIVE
     .table-container {
         overflow-x: auto;
     }
+}
+/* ==========================
+MODAL MARCO NORMATIVO
+============================= */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow: auto;
+    background: var(--color-superficie);
+    border-radius: var(--radio);
+    box-shadow: var(sombra-media);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--color-texto);
+}
+
+.modal-header p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: var(--color-primario);
+    color: white;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-body h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--color-primario);
+}
+
+.normativa-item {
+    margin-top: 18px;
+    padding: 16px;
+    border-left: 4px solid var(--color-primario);
+    background: var(--color-fondo);
+    border-radius: 8px;
+}
+
+.normativa-item h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--color-texto);
+}
+
+.normativa-item p {
+    margin-bottom: 0;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid var(--color-borde);
 }
