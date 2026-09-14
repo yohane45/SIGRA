@@ -147,7 +147,7 @@ FOOTER
     margin-bottom: 6px;
 }
 .topbar p {
-    color: white;
+    color: var(--color-texto);
 }
 .cards {
     display: grid;
