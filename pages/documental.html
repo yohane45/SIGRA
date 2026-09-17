@@ -89,13 +89,13 @@
                     </div>
                 </div>
             </header>
+
             <section class="surface page-actions">
                 <div class="page-header-actions">
                     <button class="button button-primary" id="nuevo-documento">
                         <i class="bi bi-plus-circle"></i>
                             Nuevo Documento
                     </button>
-
                     <button class="button button-secundary" id="marco-normativo">
                         <i class="bi bi-journal-text"></i>
                             Marco Normativo
@@ -103,6 +103,70 @@
                 </div>
             </section>
             
+            <section class="surface filter-bar">
+    <form class="filter-form">
+        <div class="form-group">
+            <label for="buscar-documento">Buscar</label>
+            <div class="input-group">
+                <i class="bi bi-search"></i>
+                <input type="text" id="buscar-documento"
+                    placeholder="Documento"
+                >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo-documento">Tipo</label>
+            <select id="tipo-documento">
+                <option value="">Todos</option>
+                <option value="Reglamento">Reglamento</option>
+                <option value="Procedimientos">Procedimientos</option>
+                <option value="Instructivos">Instructivos</option>
+                <option value="Formatos">Formatos</option>
+                <option value="Programas">Programas</option>
+                <option value="Planes">Planes</option>
+                <option value="Guias">Guias</option>
+                <option value="Manual">Manual</option>
+                <option value="Politicas">Politicas</option>
+                <option value="Lineamientos">Lineamientos</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="area-documento">Área</label>
+            <select id="area-documento">
+                <option value="">Todas</option>
+                <option value="Produccion">Producción</option>
+                <option value="Bodega">Bodega</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+                <option value="Oficinas">Oficinas</option>
+                <option value="Planta">Planta</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="estado-documento">Estado</label>
+            <select id="estado-documento">
+                <option value="">Todos</option>
+                <option value="Vigente">Vigente</option>
+                <option value="En revision">En revision</option>
+                <option value="Obsoleto">Obsoleto</option>
+            </select>
+        </div>
+
+        <div class="filter-actions">
+            <button class="button button-primary" type="button">
+                <i class="bi bi-funnel"></i>
+                Filtrar
+            </button>
+            <button class="button button-secundary" type="button">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Limpiar
+            </button>
+        </div>
+    </form>
+</section>
+
         </main>
     </div>
 
