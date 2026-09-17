@@ -1,0 +1,139 @@
+/* =========================================
+   NUEVO DOCUMENTO
+   ========================================= */
+
+/* Acciones del encabezado */
+.page-header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-md);
+}
+
+/* =========================================
+   INFORMACIÓN DEL DOCUMENTO
+   ========================================= */
+
+.informacion-documento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaciado-md);
+    margin-bottom: 18px;
+}
+
+.informacion-documento-grid .form-group {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   DESCRIPCIÓN
+   ========================================= */
+
+#descripcion-documento {
+    flex: 1;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    resize: vertical;
+}
+
+/* =========================================
+   SECCIÓN DE CARGA DEL DOCUMENTO
+   ========================================= */
+
+.document-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 150px;
+    padding: 20px;
+    border: 2px dashed var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+
+.document-upload > i {
+    font-size: 32px;
+    color: var(--color-primario);
+}
+
+.document-upload input[type="file"] {
+    width: auto;
+    max-width: 100%;
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+.document-upload p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-texto-secundario);
+}
+
+/* =========================================
+   TÍTULOS DE SECCIÓN
+   ========================================= */
+
+.form-section-title {
+    margin-bottom: 14px;
+}
+
+.form-section-title h2 {
+    margin-bottom: 6px;
+}
+
+.form-section-title p {
+    margin-bottom: 0;
+}
+
+/* Separación entre información y carga */
+.informacion-documento-grid + .form-group {
+    margin-top: 18px;
+}
+
+/* =========================================
+   ACCIONES DEL FORMULARIO
+   ========================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    margin-top: 24px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+    .informacion-documento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .informacion-documento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+
+    .document-upload {
+        min-height: 130px;
+    }
+}

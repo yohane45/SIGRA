@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SIGRA - Nuevo Documento</title>
+
+        <link rel="stylesheet" href="../assets/css/variables.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="../assets/css/components.css">
+        <link rel="stylesheet" href="../assets/css/nuevo-documento.css">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+
+    <body>
+        <div class="layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="logo">
+                    <img src="../assets/img/logo.png" alt="Logo SIGRA">
+                    <h2>SIGRA</h2>
+                    <p>Seguridad, Salud en el Trabajo y Capacitaciones</p>
+                </div>
+                <nav class="menu">
+                    <a href="../index.html">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Gestion del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Gestion de Inspecciones</span>
+                </a>
+                <a href="incidentes.html" >
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Gestion de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Gestion de Capacitaciones</span>
+                </a>
+                <a href="documental.html"class="active">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Gestion Documental</span>
+                </a>
+                <a href="medica.html">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>Gestion Medica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gestion de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
+                </nav>
+                <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesion</span>
+                </a>
+            </div>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="content">
+                <!-- Encabezado -->
+                <header class="surface page-header">
+                    <div class="page-header-info">
+                        <h1>Nuevo Documento</h1>
+                        <p>Registro y carga de documentos del SG-SST.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button type="button" class="button button-secundary" id="cancelar-documento">
+                            <i class="bi bi-arrow-left"></i>
+                            Cancelar
+                        </button>
+                    </div>
+                </header>
+                <!-- Formulario -->
+                <section class="surface">
+                    <form id="form-nuevo-documento" novalidate>
+                        <!-- Informacion del documento -->
+                        <div class="form-section-title">
+                            <h2>Informacion del documento</h2>
+                            <p>Registre la informacion basica y administrativa del documento.</p>
+                        </div>
+                        <div class="informacion-documento-grid">
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <label for="nombre-documento">
+                                    Nombre del Documento
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    <input type="text" id="nombre-documento" placeholder="Nombre del documento" required>
+                                </div>
+                            </div>
+                            <!-- Tipo -->
+                            <div class="form-group">
+                                <label for="tipo-documento">
+                                    Tipo de documento
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-file-earmark"></i>
+                                    <select id="tipo-documento" name="tipo-documento" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="Reglamento">Reglamento</option>
+                                        <option value="Procedimientos">Procedimientos</option>
+                                        <option value="Instructivos">Instructivos</option>
+                                        <option value="Formatos">Formatos</option>
+                                        <option value="Programas">Programas</option>
+                                        <option value="Planes">Planes</option>
+                                        <option value="Guias">Guias</option>
+                                        <option value="Manual">Manual</option>
+                                        <option value="Politicas">Politicas</option>
+                                        <option value="Lineamientos">Lineamientos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Area -->
+                            <div class="form-group">
+                                <label for="area-documento">
+                                    Area
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-building"></i>
+                                    <select id="area-documento" name="area-documento" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="Produccion">Producción</option>
+                                        <option value="Bodega">Bodega</option>
+                                        <option value="Mantenimiento">Mantenimiento</option>
+                                        <option value="Oficinas">Oficinas</option>
+                                        <option value="Planta">Planta</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Version -->
+                            <div class="form-group">
+                                <label for="version-documento">
+                                    Version
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-layers"></i>
+                                    <input type="text" id="version-documento" placeholder="Ej. 1.0" required>
+                                </div>
+                            </div>
+                            <!-- Fecha -->
+                            <div class="form-group">
+                                <label for="fecha-carga-documento">
+                                    Fecha de carga
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-calendar-event"></i>
+                                    <input type="date" id="fecha-carga-documento" name="fecha-carga-documento" required>
+                                </div>
+                            </div>
+                            <!-- Estado -->
+                            <div class="form-group">
+                                <label for="estado-documento">
+                                    Estado
+                                </label>
+                                <div class="input-group">
+                                    <i class="bi bi-check-circle"></i>
+                                    <select id="estado-documento" name="estado-documento" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="Vigente">Vigente</option>
+                                        <option value="En revision">En revision</option>
+                                        <option value="Obsoleto">Obsoleto</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Descripcion -->
+                        <div class="form-group">
+                            <label for="descripcion-documento">
+                                Descripcion
+                            </label>
+                            <div class="input-group">
+                                <i class="bi bi-card-text"></i>
+                                <textarea 
+                                    id="descripcion-documento" 
+                                    name="descripcion-documento" 
+                                    rows="4"
+                                    placeholder="Descripcion del documento" 
+                                    required></textarea>
+                            </div>
+                        </div>
+                        <!-- Carga del archivo -->
+                        <div class="form-section-title">
+                            <h2>Cargar documento</h2>
+                            <p>Seleccione el archivo que desea incorporar al sistema.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="archivo-documento">
+                                Documento
+                            </label>
+                            <div class="document-upload">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <input type="file" id="archivo-documento" name="archivo-documento"
+                                accept=".pdf,.doc,.docx,.xls,.xlsx" required>
+                                <p>Formatos permitidos: PDF, WORD, EXCEL</p>
+                            </div>
+                        </div>
+                        <!-- Acciones -->
+                        <div class="form-actions">
+                            <button type="reset" class="button button-secundary">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Limpiar
+                            </button>
+                            <button type="submit" class="button button-primary">
+                                <i class="bi bi-save"></i>
+                                Guardar Documento
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+
+        <script src="../assets/js/nuevo-documento.js" defer></script>
+
+    </body>
+</html>
