@@ -90,3 +90,138 @@ GESTIÓN DOCUMENTAL - FILTROS
     padding: 0 18px;
     white-space: nowrap;
 }
+
+/* =========================================
+TABLA DE GESTIÓN DOCUMENTAL
+   ========================================= */
+
+.table-container {
+    border-left: 4px solid var(--color-primario);
+    border-radius: var(--radio);
+    overflow-x: auto;
+}
+
+.risk-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.risk-table th {
+    background: var(--color-primario);
+    color: white;
+    padding: 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.risk-table th:first-child {
+    border-top-left-radius: var(--radio);
+}
+
+.risk-table th:last-child {
+    border-top-right-radius: var(--radio);
+}
+
+.risk-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--color-borde);
+    white-space: nowrap;
+}
+
+.risk-table tbody tr:hover {
+    background: var(--color-fondo);
+}
+
+/* =========================================
+ACCIONES
+   ========================================= */
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--radio);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.icon-button:hover {
+    background: var(--color-primario);
+    color: white;
+}
+
+/* =========================================
+ESTADOS
+   ========================================= */
+
+.status-success,
+.status-warning,
+.status-danger {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-success {
+    background: rgba(46, 125, 50, .12);
+    color: var(--color-secundario);
+}
+
+.status-warning {
+    background: rgba(243, 156, 18, .15);
+    color: var(--color-adevertencia);
+}
+
+.status-danger {
+    background: rgba(192, 57, 43, .12);
+    color: var(--color-peligro);
+}
+
+/* =========================================
+PAGINACIÓN
+   ========================================= */
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--espaciado-xs);
+    margin-top: var(--espaciado-md);
+}
+
+.pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaciado-xs);
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.pagination-button:hover,
+.pagination-button.active {
+    background: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
