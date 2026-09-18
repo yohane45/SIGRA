@@ -83,7 +83,7 @@ los contenedores del sistema.
 /* CAMPOS DE FORMULARIO */
     .form-group input,
     .form-group select,
-    .form-group texarea{
+    .form-group textarea{
     width: 100%;
     border: none;
     outline: none;

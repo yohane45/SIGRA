@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/documental.css">
+    <script src="../assets/js/documental.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -166,6 +167,7 @@
         </div>
     </form>
 </section>
+
 <!-- Tabla de documentos -->
 <section class="surface table-container">
     <div class="table-responsive">
@@ -228,8 +230,107 @@
 </section>
 </main>
 </div>
+    
+    <!-- Modal Marco Normativo -->
+    <div class="modal-overlay" id="modal-marco-normativo">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2>Marco Normativo</h2>
+                    <p>Gestion Documental del SG-SST</p>
+                </div>
+                <button type="button" class="modal-close" id="cerrar-marco-normativo">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="modal-body">
 
-    <script src="../assets/js/documental.js" defer></script>
+                <!-- Normatividad Colombiana -->
+                <div class="normativa-section">
+                    <h3>
+                        <i class="bi bi-bank"></i>
+                        Normatividad Colombiana
+                    </h3>
+                    <div class="normativa-item">
+                        <h4>Decreto 1072 de 2015</h4>
+                        <p>Articulo 2.2.4.6.12 - Documentacion del SG-SST.</p>
+                        <p>Articulo 2.2.4.6.13 - Conservacion de documentos y registros.</p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>Ley 594 de 2000</h4>
+                        <p>Ley General de Archivos.</p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>Resolucion 0312 de 2019</h4>
+                        <p>Estandares Minimos del SG-SST.</p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>Ley 1562 de 2012</h4>
+                        <p>Modifica el Sistema General de Riesgos Laborales
+                            y establece disposiciones relacionadas con la
+                            Seguridad y Salud en el Trabajo.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- ISO fundamentales -->
+                <div class="normativa-section">
+                    <h3>
+                        <i class="bi bi-journal-check"></i>
+                        Normas ISO fundamentales
+                    </h3>
+                    <div class="normativa-item">
+                        <h4>ISO 15489-1:2016</h4>
+                        <p>Informacion y documentacion - Gestion de documentos.</p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>ISO 30300:2020</h4>
+                        <p>Informacion y documentacion - Sistemas de gestion
+                            para los documentos - Fundamentos y vocabulario.
+                        </p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>ISO 30301:2019</h4>
+                        <p>Informacion y documentacion - Sistemas de gestion
+                            para los documentos - Requisitos.
+                        </p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>ISO 30302:2022</h4>
+                        <p>Informacion y documentacion - Sistemas de gestion
+                            para los documentos - Directrices para la implementacion.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- ISO complementarias -->
+                <div class="normativa-section">
+                    <h3>
+                        <i class="bi bi-diagram-3"></i>
+                        Normas ISO complementarias
+                    </h3>
+                    <div class="normativa-item">
+                        <h4>ISO 23081-1:2017</h4>
+                        <p>Informacion y documentos - Proceso de gestion
+                            de documentos - Metadatos para documentos.
+                        </p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>ISO 9001:2026</h4>
+                        <p>Sistema de gestion de la calidad.</p>
+                    </div>
+                    <div class="normativa-item">
+                        <h4>ISO/IEC 27001</h4>
+                        <p>Sistema de gestion de seguridad de la informacion.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button button-secundary" id="cerrar-marco-normativo-footer">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

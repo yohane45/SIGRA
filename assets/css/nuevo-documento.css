@@ -1,5 +1,5 @@
 /* =========================================
-   NUEVO DOCUMENTO
+NUEVO DOCUMENTO
    ========================================= */
 
 /* Acciones del encabezado */
@@ -10,7 +10,7 @@
 }
 
 /* =========================================
-   INFORMACIÓN DEL DOCUMENTO
+INFORMACIÓN DEL DOCUMENTO
    ========================================= */
 
 .informacion-documento-grid {
@@ -25,7 +25,7 @@
 }
 
 /* =========================================
-   DESCRIPCIÓN
+DESCRIPCIÓN
    ========================================= */
 
 #descripcion-documento {
@@ -40,7 +40,7 @@
 }
 
 /* =========================================
-   SECCIÓN DE CARGA DEL DOCUMENTO
+SECCIÓN DE CARGA DEL DOCUMENTO
    ========================================= */
 
 .document-upload {
@@ -70,6 +70,22 @@
     color: var(--color-texto);
 }
 
+#archivo-documento::file-selector-button {
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-right: 12px;
+    border-radius: var(--radio);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#archivo-documento::file-selector-button:hover {
+    background: var(--color-secundario);
+}
+
 .document-upload p {
     margin: 0;
     font-size: 13px;
@@ -77,7 +93,7 @@
 }
 
 /* =========================================
-   TÍTULOS DE SECCIÓN
+TÍTULOS DE SECCIÓN
    ========================================= */
 
 .form-section-title {
@@ -98,7 +114,7 @@
 }
 
 /* =========================================
-   ACCIONES DEL FORMULARIO
+ACCIONES DEL FORMULARIO
    ========================================= */
 
 .form-actions {
@@ -110,7 +126,7 @@
 }
 
 /* =========================================
-   RESPONSIVE
+RESPONSIVE
    ========================================= */
 
 @media (max-width: 1000px) {
