@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIGRA - Nuevo Examen Médico</title>
+
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/nuevo-examen.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo SIGRA">
+                <h2>SIGRA</h2>
+                <p>Seguridad, Salud en el Trabajo y Capacitaciones</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Gestión del Riesgo</span>
+                </a>
+
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Gestión de Inspecciones</span>
+                </a>
+
+                <a href="incidentes.html">
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Gestión de Incidentes</span>
+                </a>
+
+                <a href="capacitaciones.html">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Gestión de Capacitaciones</span>
+                </a>
+
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Gestión Documental</span>
+                </a>
+
+                <a href="medica.html" class="active">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>Gestión Médica</span>
+                </a>
+
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gestión de Indicadores</span>
+                </a>
+
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
+
+            </nav>
+
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- Contenido -->
+        <main class="content">
+
+            <!-- Encabezado de la página -->
+            <section class="surface page-header">
+
+                <div>
+                    <h1>Nuevo Examen Médico</h1>
+                    <p>Registro de información del examen médico ocupacional.</p>
+                </div>
+
+                <div class="page-header-actions">
+                    <button type="button"
+                            class="button button-secundary"
+                            id="cancelar-examen">
+                        <i class="bi bi-arrow-left"></i>
+                        Cancelar
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- Formulario -->
+            <section class="surface">
+                <form id="form-nuevo-examen" novalidate>
+
+                    <!-- Secciones del formulario -->
+                <div class="form-section-title">
+                    <h2>Datos de Identificación y del Puesto</h2>
+                    <p>Información del trabajador y del puesto de trabajo.</p>
+                </div>
+                
+                <div class="informacion-examen-grid">
+                    <div class=" form-group">
+                        <label for="nombres-apellidos">
+                            Nombres y apellidos
+                        </label>
+                        <input 
+                            type="text" id="nombres-apellidos" name="nombres-apellidos"
+                            placeholder="Ingrese nombres y apellidos"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="documento-identidad">
+                            Documento identidad
+                        </label>
+                        <input
+                            type="text" id="documento-identidad" name="documento-identidad"
+                            placeholder="Ingrese documento de identidad"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo-oficio">
+                            Cargo u oficio
+                        </label>
+                        <input
+                            type="text" id="cargo-oficio" name="cargo-oficio"
+                            placeholder="Ingrese cargo u oficio"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="area-seccion-sede">
+                            Área, sección o sede
+                        </label>
+                        <input
+                            type="text" id="area-seccion-sede" name="area-seccion-sede"
+                            placeholder="Ingrese área, sección o sede"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-section-title">
+                    <h2>Detalles del Examen Medico</h2>
+                    <p>Información relacionada con la realización del examen ocupacional.</p>
+                </div>
+
+                <div class="informacion-examen-grid">
+                    <div class="form-group">
+                        <label for="tipo-examen">
+                            Tipo de examen
+                        </label>
+                        <select id="tipo-examen" name="tipo-examen" required>
+                            <option value="">Seleccione</option>
+                            <option value="Examen de ingreso">Examen de ingreso</option>
+                            <option value="Examen periodico">Examen periodico</option>
+                            <option value="Cambio de ocupacion o puesto">Cambio de ocupación o puesto</option>
+                            <option value="Examen de egreso">Examen de egreso</option>
+                            <option value="Reintegro o post-incapacidad">Reintegro o post-incapacidad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-examen">
+                            Fecha del examen
+                        </label>
+                        <input type="date" id="fecha-examen"
+                        name="fecha-examen"
+                        required
+                    >
+                    </div>
+                    <div class="form-group">
+                        <label for="centro-medico">
+                            Centro medico - IPS
+                        </label>
+                        <input
+                            type="text" id="centro-medico" name="centro-medico"
+                            placeholder="Ingrese centro medico o IPS"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-section-title">
+                    <h2>Resultados y Seguimeinto</h2>
+                    <p>Registro del control médico y seguimiento ocupacional.</p>
+                </div>
+
+                <div class="informacion-examen-grid">
+                    <div class="form-group">
+                        <label for="concepto-aptitud">
+                            Concepto de aptitud
+                        </label>
+                        <select id="concepto-aptitud" name="concepto-aptitud" required>
+                            <option value="">Seleccione</option>
+                            <option value="Apto">Apto</option>
+                            <option value="Apto con recomendaciones">Apto con recomendaciones</option>
+                            <option value="Apto con restricciones">Apto con restricciones</option>
+                            <option value="No apto">No apto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-proximo-control">
+                            Fecha del próximo control 
+                        </label>
+                        <input type="date" id="fecha-proximo-control" name="fecha-proximo-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-seguimiento">
+                            Estado del seguimiento
+                        </label>
+                        <select id="estado-seguimiento" name="estado-seguimeinto" required
+                    >
+                        <option value="">Seleccione</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En Seguimiento">En Seguimeinto</option>
+                        <option value="Cerrado">Cerrado</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="restricciones-recomendaciones">
+                    Restriccciones o recomendaciones
+                </label>
+                <textarea 
+                    id="restricciones-recomendaciones" 
+                    name="restricciones-recomendaciones"
+                    rows="4" 
+                    placeholder="Ingrese restricciones o recomendaciones médicas"
+                ></textarea>
+            </div>
+
+            <!-- Carga de archivos -->
+            <div class="form-section-title">
+                <h2>Cargar examen medico</h2>
+                <p>Adjunte el documento correspondiente al examen medico ocupacional</p>
+            </div>
+
+            <div class="document-upload">
+                <i class="bi bi-file-earmark-medical"></i>
+                <input
+                    type="file" id="archivo-examen"
+                    name="archivo-examen" accept=".pdf,.doc,.docx"
+                >
+                <p>Formatos permitidos: PDF, Word</p>
+            </div>
+
+            <!-- Acciones -->
+            <div class="form-actions">
+                <button type="reset" class="button button-secundary">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                        Limpiar
+                </button>
+                <button type="submit" class="button button-primary">
+                    <i class="bi bi-save"></i>
+                        Guardar Exámen Médico
+                </button>
+            </div>
+            
+            </form>
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="../assets/js/nuevo-examen.js"></script>
+
+</body>
+</html>

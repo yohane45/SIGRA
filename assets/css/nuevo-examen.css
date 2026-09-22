@@ -1,0 +1,97 @@
+.form-section-title {
+    margin-bottom: 14px;
+}
+
+.form-section-title h2 {
+    margin-bottom: 6px;
+}
+
+.form-section-title-p{
+    margin-bottom: 0;
+}
+
+.informacion-examen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:var(--espaciado-md);
+    margin-bottom: 24px;
+}
+
+.informacion-examen-grid .form-group{
+    margin-bottom: 0;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 24px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 12px rgba(15, 76, 129, 0.25);
+}
+
+/* ==================================
+    CARGA DE DOCUMENTOS
+================================== */
+.document-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 150px;
+    padding: 20px;
+    border: 2px dashed var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+
+.document-upload > i {
+    font-size: 32px;
+    color: var(--color-primario);
+}
+
+.document-upload input[type="file"] {
+    width: auto;
+    max-width: 100%;
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+#archivo-examen::file-selector-button {
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-right: 12px;
+    border-radius: var(--radio);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#archivo-examen::file-selector-button:hover {
+    background: var(--color-secundario);
+}
+
+.document-upload p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-texto-secundario);
+}

@@ -150,16 +150,16 @@
                 </section>
 
                 <section class="cards">
-                    <article class="card">
+                    <article class="card" id="examenes-medicos">
                         <h3>Exámenes Médicos</h3>
                         <p>Registrar exámenes de ingreso, periodicos y retiro.</p>
                     </article>
-                    <article class="card">
+                    <article class="card" id="historial-medico">
                         <h3>Historial Médico</h3>
                         <p>Consultar el historial ocupacional del trabajador.</p>
                     </article>
                     <article class="card">
-                        <h3>Seguimiento médico</h3>
+                        <h3>Seguimiento Médico</h3>
                         <p>Controlar recomendaciones y restricciones laborales.</p>
                     </article>
                     <article class="card">
@@ -167,8 +167,34 @@
                         <p>Consulte la normatividad.</p>
                     </article>
                 </section>
+
+                <section class="table-section">
+                    <div class="section-header">
+                        <h2>Exámenes médicos registrados</h2>
+                        <p>Consulta los exámenes médicos ocupacionales registrados en SIGRA.</p>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Trabajador</th>
+                                    <th>Tipo de examen</th>
+                                    <th>Fecha</th>
+                                    <th>Concepto de aptitud</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-examenes">
+                                <!-- Los examenes se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </main>
         </div>
+        <script src="../assets/js/medica.js"></script>
 
     </body>
 </html>
