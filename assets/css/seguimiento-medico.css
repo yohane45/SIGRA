@@ -1,0 +1,139 @@
+/* =========================================
+SEGUIMIENTO MÉDICO
+   ========================================= */
+
+.page-header {
+    margin-bottom: 18px;
+}
+
+/* Secciones principales */
+main.content > section.surface {
+    margin-bottom: 18px;
+}
+
+/* Títulos de sección */
+.form-section-title {
+    margin-bottom: 14px;
+}
+
+.form-section-title h2 {
+    margin-bottom: 6px;
+}
+
+.form-section-title p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+}
+
+/* =========================================
+BUSCAR TRABAJADOR
+   ========================================= */
+
+main.content > section.surface:nth-child(2) {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    column-gap: 24px;
+    align-items: end;
+}
+
+main.content > section.surface:nth-child(2) .form-section-title {
+    grid-column: 1 / -1;
+}
+
+main.content > section.surface:nth-child(2) .informacion-examen-grid {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+}
+
+main.content > section.surface:nth-child(2) .form-actions {
+    grid-column: 2;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+/* =========================================
+CAMPOS
+   ========================================= */
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+}
+
+.form-group input {
+    min-height: 42px;
+    padding: 10px 14px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    padding: 10px 14px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 12px rgba(15, 76, 129, 0.25);
+}
+
+/* Información que será cargada automáticamente */
+.form-group input[readonly],
+.form-group textarea[readonly] {
+    background-color: var(--color-fondo);
+}
+
+/* =========================================
+INFORMACIÓN DEL TRABAJADOR
+   ========================================= */
+
+main.content > section.surface:nth-child(3)
+    .informacion-examen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 0;
+}
+
+/* =========================================
+RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    main.content > section.surface:nth-child(2) {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+
+    main.content > section.surface:nth-child(2) .form-section-title,
+    main.content > section.surface:nth-child(2) .informacion-examen-grid,
+    main.content > section.surface:nth-child(2) .form-actions {
+        grid-column: 1;
+    }
+
+    main.content > section.surface:nth-child(2) .form-actions {
+        justify-content: flex-start;
+    }
+
+    main.content > section.surface:nth-child(3)
+        .informacion-examen-grid {
+        grid-template-columns: 1fr;
+    }
+}

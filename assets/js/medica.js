@@ -10,6 +10,12 @@ historialMedico.addEventListener("click", function () {
     window.location.href = "historial-medico.html";
 });
 
+const seguimientoMedico = document.getElementById("seguimiento-medico");
+
+seguimientoMedico.addEventListener("click", function () {
+    window.location.href = "seguimiento-medico.html";
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const tablaExamenes = document.getElementById("tabla-examenes");
