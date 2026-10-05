@@ -137,3 +137,46 @@ RESPONSIVE
         grid-template-columns: 1fr;
     }
 }
+
+/* ===============================
+PROGRAMAS DDE VIGILANCIA EPIDEMIOLOGICA
+   =============================== */
+
+.programas-vigilancia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 18px;
+    margin-top: 10px;
+}
+
+.programa-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.programa-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: var(--color-primario);
+    flex-shrink: 0;
+}
+
+.programa-item:hover {
+    border-color: var(--color-primario);
+    background-color: var(--color-fondo);
+}
+
+@media (max-width: 768px) {
+    .programas-vigilancia {
+        grid-template-columns: 1fr;
+    }
+}
