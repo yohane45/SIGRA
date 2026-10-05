@@ -153,7 +153,7 @@
                         <h3>Seguimiento Médico</h3>
                         <p>Controlar recomendaciones y restricciones laborales.</p>
                     </article>
-                    <article class="card">
+                    <article class="card" id="marco-normativo">
                         <h3>Marco Normativo</h3>
                         <p>Consulte la normatividad.</p>
                     </article>
@@ -186,6 +186,69 @@
             </main>
         </div>
         <script src="../assets/js/medica.js"></script>
+        
+        <!-- Modal Marco Normativo -->
+            <div class="modal-overlay" id="modal-marco-normativo">
+                <div class="modal">
+                    <div class="modal-header">
+                        <div>
+                            <h2>Marco Normativo</h2>
+                            <p>Gestión Médica Ocupacional</p>
+                        </div>
+                        <button type="button" class="modal-close" id="cerrar-marco-normativo">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
 
-    </body>
+                    <div class="modal-body">
+
+        <!-- Normatividad Colombiana -->
+            <div class="normativa-section">
+                <h3>
+                    <i class="bi bi-bank"></i>
+                    Normatividad Colombiana
+                </h3>
+                <div class="normativa-item">
+                    <h4>Resolución 1843 de 2025</h4>
+                    <p>
+                        Regulación de las evaluaciones médicas ocupacionales
+                        y disposiciones relacionadas con la historia clínica
+                        ocupacional.
+                    </p>
+                </div>
+                <div class="normativa-item">
+                    <h4>Decreto 1072 de 2015</h4>
+                    <p>
+                        Decreto Único Reglamentario del Sector Trabajo y marco
+                        general del Sistema de Gestión de Seguridad y Salud
+                        en el Trabajo.
+                    </p>
+                </div>
+                <div class="normativa-item">
+                    <h4>Resolución 0312 de 2019</h4>
+                    <p>
+                        Establece los Estándares Mínimos del Sistema de Gestión
+                        de Seguridad y Salud en el Trabajo.
+                    </p>
+                </div>
+                <div class="normativa-item">
+                    <h4>Ley 1562 de 2012</h4>
+                    <p>
+                        Modifica el Sistema General de Riesgos Laborales y
+                        establece disposiciones relacionadas con la Seguridad
+                        y Salud en el Trabajo.
+                    </p>
+                </div>
+
+            </div>
+
+        <div class="modal-footer">
+            <button type="button" class="button button-secundary" id="cerrar-marco-normativo-footer">
+                Cerrar
+            </button>
+        </div>
+
+    </div>
+</div>
+</body>
 </html>
