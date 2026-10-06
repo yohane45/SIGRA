@@ -29,12 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
     examenesGuardados.forEach(function (examen) {
         const fila = document.createElement("tr");
 
+        const seguimientosMedicos = JSON.parse(localStorage.getItem("seguimientosMedicos")) || [];
+        const seguimientoEncontrado = seguimientosMedicos.find(function (seguimiento) {
+            return seguimiento.documentoIdentidad === examen.documentoIdentidad;
+        }
+    );
+    const pveAsignados = seguimientoEncontrado ? seguimientoEncontrado.programasVigilancia.join(", ") :"Sin PVE asignado";
         fila.innerHTML = `
             <td>${examen.id}</td>
             <td>${examen.nombresApellidos}</td>
             <td>${examen.tipoExamen}</td>
             <td>${examen.fechaExamen}</td>
             <td>${examen.conceptoAptitud}</td>
+            <td>${pveAsignados}</td>
             <td>${examen.estadoSeguimiento}</td>
         `;
 
@@ -73,6 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (evento.target === modalMarcoNormativo) {
             modalMarcoNormativo.classList.remove("active");
         }
+    });
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const pve = document.getElementById("programa-vigilancia-epidemiologica");
+
+    pve.addEventListener("click", function () {
+        window.location.href = "pve.html";
     });
 
 });

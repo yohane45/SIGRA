@@ -159,6 +159,42 @@ TABLA DE EXÁMENES MÉDICOS
     background-color: var(--color-fondo);
 }
 
+/* =========================================
+PAGINACIÓN
+   ========================================= */
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--espaciado-xs);
+    margin-top: var(--espaciado-md);
+}
+
+.pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaciado-xs);
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.pagination-button:hover,
+.pagination-button.active {
+    background: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
 /* ==========================
 MODAL MARCO NORMATIVO
 ============================= */
@@ -256,4 +292,28 @@ MODAL MARCO NORMATIVO
     justify-content: flex-end;
     padding: 16px 24px;
     border-top: 1px solid var(--color-borde);
+}
+
+.cards .card {
+    padding: 14px 18px;
+}
+
+/* SELECTOR PVE */
+#programa-pve {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+}
+
+#programa-pve:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 12px rgba(15, 76, 129, 0.25);
 }

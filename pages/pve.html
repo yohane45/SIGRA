@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIGRA - Seguimiento Médico</title>
+
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/seguimiento-medico.css">
+    <link rel="stylesheet" href="../assets/css/medica.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo SIGRA">
+                <h2>SIGRA</h2>
+                <p>Seguridad, Salud en el Trabajo y Capacitaciones</p>
+            </div>
+            <nav class="menu">
+                <a href="../index.html">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="riesgos.html">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Gestión del Riesgo</span>
+                </a>
+                <a href="inspecciones.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Gestión de Inspecciones</span>
+                </a>
+                <a href="incidentes.html">
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Gestión de Incidentes</span>
+                </a>
+                <a href="capacitaciones.html">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Gestión de Capacitaciones</span>
+                </a>
+                <a href="documental.html">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Gestión Documental</span>
+                </a>
+                <a href="medica.html" class="active">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>Gestión Médica</span>
+                </a>
+                <a href="indicadores.html">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Gestión de Indicadores</span>
+                </a>
+                <a href="perfil.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+            <div class="menu-footer">
+                <a href="../login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Contenido -->
+        <main class="content">
+<!-- Encabezado de la página -->
+            <section class="surface page-header">
+                <div>
+                    <h1>PVE</h1>
+                    <p>Consulta y gestión de los Programas de vigilancia epidemiológica.</p>
+                </div>
+
+                <div class="page-header-actions">
+                    <button type="button" class="button button-secundary" id="volver-pve">
+                        <i class="bi bi-arrow-left"></i>
+                        Volver
+                    </button>
+                </div>
+            </section>
+
+<!-- Selector de programas -->
+            <section class="surface">
+                <div class="form-section-title">
+                    <h2>Seleccionar Programa</h2>
+                    <p>Seleccione un Programa de Vigilancia Epidemiológica
+                        para consultar los trabajadores vinculados.
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="programa-pve">
+                        Programa de Vigilancia Epidemiológica
+                    </label>
+                    <select id="programa-pve" name="programa-pve">
+                        <option value="">Seleccione un programa</option>
+                        <option value="Desordenes muscoloesqueleticos / ergonomicos">
+                            Desórdenes muscoloesqueléticos / ergonómicos
+                        </option>
+                        <option value="Riesgo Psicosocial">
+                            Riesgo Psicosocial
+                        </option>
+                        <option value="Conservacion auditiva (Riesgo fisico - Ruido)">
+                            Conservación auditiva (Riesgo fisico - Ruido)
+                        </option>
+                        <option value="Riesgo Quimico y respiratorio">
+                            Riesgo Químico y respiratorio
+                        </option>
+                        <option value="Riesgo Cardiovascular">
+                            Riesgo Cardiovascular
+                        </option>
+                        <option value="Trabajo en Alturas">
+                            Trabajo en Alturas
+                        </option>
+                        <option value="Riesgo Biologico">
+                            Riesgo Biológico
+                        </option>
+                        <option value="Seguridad Vial / Conductores">
+                            Seguridad Vial / Conductores
+                        </option>
+                    </select>
+                </div>
+            </section>
+
+<!-- Tabla de trabajadores vinculados -->            
+            <section class="table-section">
+                <div class="section-header">
+                    <h2>Trabajadores vinculados al PVE</h2>
+                    <p>Trabajadores asociados al Programa de Vigilancia Epidemiológica seleccionado.</p>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th>Trabajador</th>
+                                <th>Programa de Vigilancia Epidemiologica</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-trabajadores-pve">
+                            <!-- Los trabajadores se cargan aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../assets/js/pve.js"></script>
+</body>
+</html>
+<
