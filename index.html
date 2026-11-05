@@ -126,8 +126,66 @@
                     <p class="card-value">15</p>
                     <span class="card-status status-danger">3 riesgos críticos pendientes</span>
                 </article>
-
             </section>
+<!-- INFORMACIÓN GENERAL DE LA EMPRESA -->
+            <section class="surface panel">
+                <h2>
+                    <i class="bi bi-building"></i>
+                    Información de la Empresa
+                </h2>
+                <form id="formulario-empresa">
+                    <div class="form-group">
+                        <label for="nombre-empresa">Nombre de la Empresa</label>
+                        <input
+                            type="text"
+                            id="nombre-empresa"
+                            placeholder="Ingrese el nombre de la empresa"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="nit-empresa">NIT</label>
+                        <input
+                            type="text"
+                            id="nit-empresa"
+                            placeholder="Ingrese el NIT"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="actividad-empresa">Actividad Económica</label>
+                        <input
+                            type="text"
+                            id="actividad-empresa"
+                            placeholder="Ingrese la actividad económica"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="trabajadores-empresa">Número actual de Trabajadores</label>
+                        <input
+                            type="number"
+                            id="trabajadores-empresa"
+                            min="0"
+                            placeholder="Ej. 57"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-actualizacion">Fecha de Actualización</label>
+                        <input
+                            type="date"
+                            id="fecha-actualizacion"
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="button-primary">
+                        <i class="bi bi-save"></i>
+                        Guardar Información
+                    </button>
+                </form>
+            </section>
+            
             <section class="panels">
                 <article class="surface panel">
                     <h2>Actividades recientes</h2>
