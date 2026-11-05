@@ -85,6 +85,89 @@
                     </div>
                 </div>
             </header>
+<!-- TARJETAS PRINCIPALES -->   
+            <section class="cards">
+                <article class="card" id="registrar-trabajador">
+                    <h3>Registrar Trabajador</h3>
+                    <p>Registrar los datos de identificación y la información básica del trabajador.</p>
+                </article>
+                <article class="card" id="gestionar-vinculaciones">
+                    <h3>Gestionar Vinculaciones</h3>
+                    <p>Administrar las modalidades de vinculación, cargo, áreas y periodos laborales.</p>
+                </article>
+                <article class="card" id="consultar-trabajadores">
+                    <h3>Consultar Trabajadores</h3>
+                    <p>Consultar el registro maestro y revisar el estado de los trabajadores.</p>
+                </article>
+            </section>
+<!-- BARRA DE FILTROS -->
+            <section class="surface filter-bar">
+                <form class="filter-form" id="formulario-filtros">
+                    <div class="form-group">
+                        <label for="filtro-documento">Documento</label>
+                        <input type="text" id="filtro-documento" placeholder="Numero de documento">
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-nombre">Nombre del trabajador</label>
+                        <input type="text" id="filtro-nombre" placeholder="Buscar trabajador">
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-poblacion">Tipo de población</label>
+                        <select id="filtro-poblacion">
+                            <option value="">Todos</option>
+                            <option value="DEP">Dependiente</option>
+                            <option value="IND">Independiente</option>
+                            <option value="MIS">Trabajador en misión</option>
+                            <option value="COO">Cooperado</option>
+                            <option value="EST">Estudiante en prácticas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-estado">Estado</label>
+                        <select id="filtro-estado">
+                            <option value="">Todos</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="button button-primary" type="button" id="btn-filtrar">
+                            Filtrar
+                        </button>
+                        <button class="button button-secondary" type="button" id="btn-limpiar">
+                            Limpiar
+                        </button>
+                    </div>
+                </form>
+            </section>
+<!-- REGISTRO MAESTRO DE TRABAJADORES -->
+            <section class="table-section">
+                <div class="section-header">
+                    <h2>Registro Maestro de Trabajadores</h2>
+                    <p>Consulta y administración de la población trabajadora registrada en SIGRA.</p>
+                </div>
+                <div class="surface table-container">
+                    <div class="table-responsive">
+                        <table class="risk-table">
+                            <thead>
+                                <tr>
+                                    <th>Documento</th>
+                                    <th>Trabajador</th>
+                                    <th>Tipo de Población</th>
+                                    <th>Empresa</th>
+                                    <th>Cargo</th>
+                                    <th>Área</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-trabajadores">
+                                <!-- LOs trabajadores se cargan aquí mediante JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 </body>

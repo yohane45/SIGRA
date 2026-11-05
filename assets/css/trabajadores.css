@@ -1,0 +1,208 @@
+/* BARRA DE FILTROS - GESTIÓN DE TRABAJADORES */
+
+#formulario-filtros {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 15px;
+    width: 100%;
+}
+
+#formulario-filtros .form-group {
+    min-width: 0;
+}
+
+#formulario-filtros .filter-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#formulario-filtros .filter-actions button {
+    white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+    #formulario-filtros {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #formulario-filtros .filter-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    #formulario-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario-filtros .filter-actions {
+        grid-column: auto;
+    }
+}
+/* TABLA - REGISTRO MAESTRO DE TRABAJADORES */
+
+.table-section .table-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.table-section .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-section .risk-table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+}
+
+.table-section .risk-table th,
+.table-section .risk-table td {
+    padding: 14px 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.table-section .risk-table th {
+    font-weight: 600;
+}
+/* =====================================
+ESPACIADO GENERAL DEL MÓDULO
+===================================== */
+
+/* Separación entre las tarjetas y los filtros */
+.content > .cards {
+    margin-bottom: 20px;
+}
+
+/* Separación y espacio interno de la barra de filtros */
+.content > .filter-bar {
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 20px 16px;
+}
+
+/* Separación del registro maestro */
+.content > .table-section {
+    margin-top: 24px;
+}
+
+/* Separación entre el título y la tabla */
+.table-section .section-header {
+    margin-bottom: 14px;
+}
+/* =====================================
+ESPACIADO GENERAL DEL MÓDULO
+===================================== */
+
+/* Separación entre las tarjetas y los filtros */
+.content > .cards {
+    margin-bottom: 12px;
+}
+
+/* Separación y espacio interno de la barra de filtros */
+.content > .filter-bar {
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 20px 16px;
+}
+
+/* Separación del registro maestro */
+.content > .table-section {
+    margin-top: 16px;
+}
+
+/* Separación entre el título y la tabla */
+.table-section .section-header {
+    margin-bottom: 14px;
+}
+/* =====================================
+REGISTRO MAESTRO DE TRABAJADORES
+===================================== */
+
+.table-section .section-header {
+    padding: 0 2px;
+}
+
+.table-section .table-container {
+    padding: 12px 10px;
+    margin-top: 0;
+}
+
+.table-section .risk-table th {
+    padding: 16px 12px;
+}
+/* =========================================
+CORRECCIÓN DEFINITIVA DE CAMPOS Y BOTONES
+GESTIÓN DE TRABAJADORES
+========================================= */
+
+/* Campos de texto y listas desplegables */
+#formulario-filtros .form-group input,
+#formulario-filtros .form-group select {
+    display: block !important;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 12px !important;
+
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 7px !important;
+
+    background: #ffffff !important;
+    color: #334155 !important;
+
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+}
+
+/* Apariencia al seleccionar los campos */
+#formulario-filtros .form-group input:focus,
+#formulario-filtros .form-group select:focus {
+    border-color: #165487 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(22, 84, 135, 0.12) !important;
+}
+/* BOTONES FILTRAR Y LIMPIAR */
+
+#formulario-filtros .filter-actions {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: flex-end !important;
+}
+
+#formulario-filtros .filter-actions button {
+    width: 90px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    border-radius: 7px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    cursor: pointer;
+    box-sizing: border-box !important;
+}
+
+/* Botón Filtrar */
+#formulario-filtros #btn-filtrar {
+    background: #165487 !important;
+    color: #ffffff !important;
+    border: 1px solid #165487 !important;
+}
+
+/* Botón Limpiar */
+#formulario-filtros #btn-limpiar {
+    background: #165487  !important;
+    color: #ffffff!important;
+    border: 1px solid #165487 !important;
+}
