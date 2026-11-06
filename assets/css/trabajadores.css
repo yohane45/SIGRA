@@ -206,3 +206,24 @@ GESTIÓN DE TRABAJADORES
     color: #ffffff!important;
     border: 1px solid #165487 !important;
 }
+
+/* ========================================
+INTERACCIÓN DE TARJETAS
+GESTIÓN DE TRABAJADORES
+======================================== */
+
+.cards .card {
+    cursor: pointer;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-left-color 0.3s ease;
+}
+
+.cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cards .card:active {
+    transform: translateY(-2px);
+}
