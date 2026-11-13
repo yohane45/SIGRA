@@ -10,6 +10,23 @@ function obtenerTrabajadores() {
     return JSON.parse(localStorage.getItem('trabajadores')) || [];
 }
 
+// Consultar la vinculacion vigente de cada trabajador
+function obtenerVinculacionVigente(idTrabajador) {
+
+    const vinculaciones = JSON.parse(
+        localStorage.getItem('vinculaciones')
+    ) || [];
+
+    return vinculaciones
+        .filter(vinculacion =>
+            vinculacion.idTrabajador === idTrabajador &&
+            vinculacion.estado === 'Activo'
+        )
+        .sort((a, b) =>
+            new Date(b.fechaCreacion) - new Date(a.fechaCreacion)
+        )[0] || null;
+}
+
 // Mostrar trabajadores en la tabla
 function mostrarTrabajadores() {
 
@@ -30,16 +47,21 @@ function mostrarTrabajadores() {
 
     trabajadores.forEach(trabajador => {
 
+        // Consultar la vinculacion vigente
+        const vinculacion = obtenerVinculacionVigente(
+            trabajador.idTrabajador
+        );
+
         const fila = document.createElement('tr');
 
         fila.innerHTML = `
             <td>${trabajador.tipoDocumento} ${trabajador.documentoIdentidad}</td>
             <td>${trabajador.nombres} ${trabajador.apellidos}</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
+            <td>${vinculacion ? vinculacion.tipoPoblacion : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.empresa : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.cargo : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.area : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.estado : 'Pendiente'}</td>
             <td>Sin acciones</td>
         `;
 
@@ -54,21 +76,29 @@ document.addEventListener('DOMContentLoaded', mostrarTrabajadores);
 // FILTRAR TRABAJADORES
 // ========================================
 
+// Filtrar trabajadores por documento y nombre
 function filtrarTrabajadores() {
 
     const documento = document.getElementById('filtro-documento').value.trim().toLowerCase();
     const nombre = document.getElementById('filtro-nombre').value.trim().toLowerCase();
+
     const trabajadores = obtenerTrabajadores();
+
     const resultados = trabajadores.filter(trabajador => {
+
         const coincideDocumento = trabajador.documentoIdentidad
             .toLowerCase()
             .includes(documento);
+
         const nombreCompleto = `${trabajador.nombres} ${trabajador.apellidos}`.toLowerCase();
+
         const coincideNombre = nombreCompleto.includes(nombre);
+
         return coincideDocumento && coincideNombre;
     });
 
     tablaTrabajadores.innerHTML = '';
+
     if (resultados.length === 0) {
         tablaTrabajadores.innerHTML = `
             <tr>
@@ -81,21 +111,27 @@ function filtrarTrabajadores() {
     }
 
     resultados.forEach(trabajador => {
+
+        const vinculacion = obtenerVinculacionVigente(
+            trabajador.idTrabajador
+        );
+
         const fila = document.createElement('tr');
+
         fila.innerHTML = `
             <td>${trabajador.tipoDocumento} ${trabajador.documentoIdentidad}</td>
             <td>${trabajador.nombres} ${trabajador.apellidos}</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
-            <td>Pendiente</td>
+            <td>${vinculacion ? vinculacion.tipoPoblacion : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.empresa : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.cargo : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.area : 'Pendiente'}</td>
+            <td>${vinculacion ? vinculacion.estado : 'Pendiente'}</td>
             <td>Sin acciones</td>
         `;
+
         tablaTrabajadores.appendChild(fila);
     });
 }
-
 // Evento del botón Filtrar
 document.getElementById('btn-filtrar').addEventListener('click', filtrarTrabajadores);
 
@@ -114,4 +150,12 @@ document.getElementById('btn-limpiar').addEventListener('click', function () {
 
 document.getElementById('registrar-trabajador').addEventListener('click', function () {
     window.location.href = 'nuevo-trabajador.html';
+});
+
+// ========================================
+// NAVEGACIÓN: GESTIONAR VINCULACIONES
+// ========================================
+
+document.getElementById('gestionar-vinculaciones').addEventListener('click', function () {
+    window.location.href = 'vinculaciones.html';
 });

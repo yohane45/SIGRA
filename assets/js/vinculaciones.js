@@ -1,22 +1,16 @@
 // ========================================
-// CARGAR TRABAJADORES REGISTRADOS
+// CARGAR TRABAJADORES EN EL SELECTOR
 // ========================================
 
 function cargarTrabajadores() {
-
     const selectorTrabajador = document.getElementById('trabajador-vinculacion');
-
-    // Consultar trabajadores almacenados
     const trabajadores = JSON.parse(localStorage.getItem('trabajadores')) || [];
 
-    // Limpiar opciones anteriores
     selectorTrabajador.innerHTML = `
         <option value="">Seleccione un trabajador</option>
     `;
 
-    // Recorrer los trabajadores registrados
     trabajadores.forEach(trabajador => {
-
         const opcion = document.createElement('option');
 
         opcion.value = trabajador.idTrabajador;
@@ -25,11 +19,161 @@ function cargarTrabajadores() {
             `${trabajador.tipoDocumento} ${trabajador.documentoIdentidad} - ${trabajador.nombres} ${trabajador.apellidos}`;
 
         selectorTrabajador.appendChild(opcion);
-
     });
+}
+
+// ==============================
+// GUARDAR UNA NUEVA VINCULACION
+// ==============================
+
+function guardarVinculacion(event) {
+    event.preventDefault();
+
+    const formulario = document.getElementById('formulario-vinculacion');
+
+    // Obtener los valores del formulario
+    const idTrabajador = document.getElementById('trabajador-vinculacion').value;
+    const tipoPoblacion = document.getElementById('tipo-poblacion').value;
+    const modalidad = document.getElementById('modalidad-vinculacion').value;
+    const empresa = document.getElementById('empresa-vinculacion').value.trim();
+    const cargo = document.getElementById('cargo-vinculacion').value.trim();
+    const area = document.getElementById('area-vinculacion').value.trim();
+    const fechaInicio = document.getElementById('fecha-inicio').value;
+    const fechaFinalizacion = document.getElementById('fecha-finalizacion').value;
+    const estado = document.getElementById('estado-vinculacion').value;
+
+    // validar campos obligatorios
+    if (
+        !idTrabajador ||
+        !tipoPoblacion ||
+        !modalidad ||
+        !empresa ||
+        !cargo ||
+        !area ||
+        !fechaInicio ||
+        !estado
+    ){
+        alert('Por favor, complete todos los campos obligatorios.');
+        return;
+    }
+
+    // Validar que el trabajador exista
+    const trabajadores = JSON.parse(localStorage.getItem('trabajadores')) || [];
+
+    const trabajadorExiste = trabajadores.some(
+        trabajador => trabajador.idTrabajador === idTrabajador
+    );
+
+    if (!trabajadorExiste){
+        alert('El trabajador seleccionado no se encuentra registrado.');
+        return;
+    }
+
+    // Validar fechas
+    if (fechaFinalizacion && fechaFinalizacion < fechaInicio) {
+        alert('La fecha de finalizacion no puede ser anterior a la fecha de inicio.');
+        return;
+    }
+
+    // Recuperar vinculacion existente
+    const vinculaciones = JSON.parse(localStorage.getItem ('vinculaciones')) || [];
+
+    // Crear objeto de vinculacion
+    const nuevaVinculacion = {
+        idVinculacion: crypto.randomUUID(),
+        idTrabajador: idTrabajador,
+        tipoPoblacion: tipoPoblacion,
+        modalidad: modalidad,
+        empresa: empresa,
+        cargo: cargo,
+        area: area,
+        fechaInicio: fechaInicio,
+        fechaFinalizacion: fechaFinalizacion,
+        estado: estado,
+        fechaCreacion: new Date().toISOString()
+    };
+
+    // Guardar la nueva vinculacion
+    vinculaciones.push(nuevaVinculacion);
+
+    localStorage.setItem('vinculaciones', JSON.stringify(vinculaciones));
+
+    alert('La vinculacion se ha registrado correctamente');
+
+    formulario.reset();
+
+    // Actualizar historial
+    mostrarVinculaciones();
+}
+
+// ===================================
+// MOSTRAR HISTORIAL DE VINCULACIONES
+// ===================================
+
+function mostrarVinculaciones() {
+    const tabla = document.getElementById('tabla-vinculaciones');
+    const vinculaciones = JSON.parse(localStorage.getItem('vinculaciones')) || [];
+    const trabajadores = JSON.parse(localStorage.getItem('trabajadores')) || [];
+    tabla.innerHTML = '';
+    if (vinculaciones.length === 0){
+        tabla.innerHTML = `
+            <tr>
+                <td colspan="8">No hay vinculaciones registradas.</td>
+            </tr>
+        `;
+        return;
+    }
+
+    vinculaciones.forEach(vinculacion => {
+        // Buscar trabajdor relacionado
+        const trabajador = trabajadores.find(
+            persona => persona.idTrabajador === vinculacion.idTrabajador
+        );
+
+        const nombreTrabajador = trabajador
+        ? `${trabajador.nombres} ${trabajador.apellidos}`
+        : 'Trabajador no encontrado';
+
+        const fila = document.createElement('tr');
+        const datos = [
+            nombreTrabajador,
+            vinculacion.empresa,
+            vinculacion.cargo,
+            vinculacion.area,
+            vinculacion.modalidad,
+            vinculacion.fechaInicio,
+            vinculacion.fechaFinalizacion || 'Sin fecha',
+            vinculacion.estado
+        ];
+
+        datos.forEach(dato => {
+            const celda = document.createElement('td');
+            celda.textContent = dato || '-';
+            fila.appendChild(celda);
+        });
+        tabla.appendChild(fila);
+    });
+}
+
+// =============================
+// CANCELAR FORMULARIO
+// =============================
+
+function cancelarVinculacion() {
+    window.location.href = 'trabajadores.html';
 
 }
 
-// Cargar trabajadores al abrir la página
-document.addEventListener('DOMContentLoaded', cargarTrabajadores);
+// =============================
+// INICIALIZAR FUNCIONALIDADES
+// =============================
 
+document.addEventListener('DOMContentLoaded', function (){
+    cargarTrabajadores();
+    // Recuperar y mostar el historial guardado
+    mostrarVinculaciones();
+    const formulario = document.getElementById('formulario-vinculacion');
+    formulario.addEventListener('submit', guardarVinculacion);
+    const botonCancelar = document.getElementById('cancelar-vinculacion');
+    botonCancelar.addEventListener('click', cancelarVinculacion);
+});
