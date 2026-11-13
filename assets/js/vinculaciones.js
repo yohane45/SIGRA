@@ -1,3 +1,5 @@
+let idVinculacionEnEdicion = null;
+
 // ========================================
 // CARGAR TRABAJADORES EN EL SELECTOR
 // ========================================
@@ -75,36 +77,56 @@ function guardarVinculacion(event) {
         return;
     }
 
-    // Recuperar vinculacion existente
-    const vinculaciones = JSON.parse(localStorage.getItem ('vinculaciones')) || [];
+    // Recuperar vinculaciones existentes
+const vinculaciones = JSON.parse(localStorage.getItem('vinculaciones')) || [];
 
-    // Crear objeto de vinculacion
-    const nuevaVinculacion = {
-        idVinculacion: crypto.randomUUID(),
-        idTrabajador: idTrabajador,
-        tipoPoblacion: tipoPoblacion,
-        modalidad: modalidad,
-        empresa: empresa,
-        cargo: cargo,
-        area: area,
-        fechaInicio: fechaInicio,
-        fechaFinalizacion: fechaFinalizacion,
-        estado: estado,
-        fechaCreacion: new Date().toISOString()
-    };
+// Crear objeto con los datos del formulario
+const nuevaVinculacion = {
+    idVinculacion: idVinculacionEnEdicion || crypto.randomUUID(),
+    idTrabajador: idTrabajador,
+    tipoPoblacion: tipoPoblacion,
+    modalidad: modalidad,
+    empresa: empresa,
+    cargo: cargo,
+    area: area,
+    fechaInicio: fechaInicio,
+    fechaFinalizacion: fechaFinalizacion,
+    estado: estado,
+    fechaCreacion: new Date().toISOString()
+};
 
-    // Guardar la nueva vinculacion
+// Verificar si estamos editando o creando
+if (idVinculacionEnEdicion) {
+
+    const indice = vinculaciones.findIndex(
+        registro => registro.idVinculacion === idVinculacionEnEdicion
+    );
+
+    if (indice !== -1) {
+        nuevaVinculacion.fechaCreacion = vinculaciones[indice].fechaCreacion;
+        vinculaciones[indice] = nuevaVinculacion;
+    }
+
+    alert('La vinculacion se ha actualizado correctamente');
+
+} else {
+
     vinculaciones.push(nuevaVinculacion);
 
-    localStorage.setItem('vinculaciones', JSON.stringify(vinculaciones));
-
     alert('La vinculacion se ha registrado correctamente');
-
-    formulario.reset();
-
-    // Actualizar historial
-    mostrarVinculaciones();
 }
+
+// Guardar información
+localStorage.setItem('vinculaciones', JSON.stringify(vinculaciones));
+
+// Restablecer formulario y modo de edición
+formulario.reset();
+idVinculacionEnEdicion = null;
+
+document.getElementById('guardar-vinculacion').textContent = 'Guardar Vinculación';
+
+// Actualizar historial
+mostrarVinculaciones();
 
 // ===================================
 // MOSTRAR HISTORIAL DE VINCULACIONES
@@ -147,11 +169,62 @@ function mostrarVinculaciones() {
         ];
 
         datos.forEach(dato => {
-            const celda = document.createElement('td');
-            celda.textContent = dato || '-';
-            fila.appendChild(celda);
-        });
-        tabla.appendChild(fila);
+    const celda = document.createElement('td');
+    celda.textContent = dato || '-';
+    fila.appendChild(celda);
+});
+
+// Crear columna de acciones
+const celdaAcciones = document.createElement('td');
+
+const botonEditar = document.createElement('button');
+botonEditar.textContent = 'Editar';
+botonEditar.type = 'button';
+botonEditar.classList.add('btn-editar');
+
+botonEditar.addEventListener('click', () => {
+    editarVinculacion(vinculacion.idVinculacion);
+});
+
+celdaAcciones.appendChild(botonEditar);
+fila.appendChild(celdaAcciones);
+
+tabla.appendChild(fila);
+    });
+}
+
+// ===================================
+// EDITAR VINCULACIÓN
+// ===================================
+
+function editarVinculacion(idVinculacion) {
+    const vinculaciones = JSON.parse(localStorage.getItem('vinculaciones')) || [];
+
+    const vinculacion = vinculaciones.find(
+        registro => registro.idVinculacion === idVinculacion
+    );
+
+    if (!vinculacion) {
+        alert('No se encontró la vinculación seleccionada.');
+        return;
+    }
+
+    idVinculacionEnEdicion = idVinculacion;
+
+    document.getElementById('trabajador-vinculacion').value = vinculacion.idTrabajador;
+    document.getElementById('tipo-poblacion').value = vinculacion.tipoPoblacion;
+    document.getElementById('modalidad-vinculacion').value = vinculacion.modalidad;
+    document.getElementById('empresa-vinculacion').value = vinculacion.empresa;
+    document.getElementById('cargo-vinculacion').value = vinculacion.cargo;
+    document.getElementById('area-vinculacion').value = vinculacion.area;
+    document.getElementById('fecha-inicio').value = vinculacion.fechaInicio;
+    document.getElementById('fecha-finalizacion').value = vinculacion.fechaFinalizacion || '';
+    document.getElementById('estado-vinculacion').value = vinculacion.estado;
+
+    document.getElementById('guardar-vinculacion').textContent = 'Actualizar Vinculación';
+
+    document.getElementById('formulario-vinculacion').scrollIntoView({
+        behavior: 'smooth'
     });
 }
 
@@ -177,3 +250,4 @@ document.addEventListener('DOMContentLoaded', function (){
     const botonCancelar = document.getElementById('cancelar-vinculacion');
     botonCancelar.addEventListener('click', cancelarVinculacion);
 });
+}
