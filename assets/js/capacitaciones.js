@@ -13,7 +13,7 @@ marcoNormativo.addEventListener("click", function(){
     modalMarcoNormativo.classList.add("active");
 });
 
-cerrarMarcoNormativo.addEventListener("cilck", function(){
+cerrarMarcoNormativo.addEventListener("click", function(){
     modalMarcoNormativo.classList.remove("active");
 });
 
