@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/indicadores.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -93,24 +94,42 @@
                 </div>
             </header>
 
-            <section class="cards">
-                <article class="card">
-                    <h3>Indicadores de Riesgos</h3>
-                    <p>Visualizar estadísticas relacionadas con los riesgos identificados.</p>
-                </article>
+            <section class="surface" id="indicadores-riesgos">
+                <h2>Indicadores de Gestión del Riesgo</h2>
+                <p>Estadisticas basadas en las evaluaciones registradas en SIGRA.</p>
 
-                <article class="card">
-                    <h3>Accidentalidad</h3>
-                    <p>Consultar índices de incidentes y accidentes laborales.</p>
-                </article>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Total de evaluaciones</h3>
+                        <p id="total-evaluaciones">0</p>
+                    </article>
 
-                <article class="card">
-                    <h3>Reportes</h3>
-                    <p>Generar informes y gráficos para la toma de decisiones.</p>
-                </article>
+                    <article class="card">
+                        <h3>Riesgos no aceptables</h3>
+                        <p id="riesgos-no-aceptables">0</p>
+                    </article>
+                </div>
+
+                <div class="cards indicadore-graficos">
+                    <article class="card">
+                        <h3>Peligros por clasificación</h3>
+                        <canvas id="grafico-peligros"></canvas>
+                    </article>
+
+                    <article class="card">
+                        <h3>Riesgos por niveles de intervención</h3>
+                        <canvas id="grafico-niveles"></canvas>
+                    </article>
+
+                    <article class="card">
+                        <h3>Riesgo por área</h3>
+                        <canvas id="grafico-areas"></canvas>
+                    </article>
+                </div>
             </section>
         </main>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/indicadores.js"></script>
 </body>
 </html>

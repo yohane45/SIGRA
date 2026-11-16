@@ -1,0 +1,68 @@
+/* =====================================
+GRÁFICOS DE GESTIÓN DEL RIESGO
+===================================== */
+
+.indicadores-graficos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.indicadores-graficos .card {
+    min-width: 0;
+    padding: 20px;
+}
+
+.indicadores-graficos .card h3 {
+    font-size: 17px;
+    margin-bottom: 16px;
+}
+
+.indicadores-graficos canvas {
+    width: 100% !important;
+    height: 230px !important;
+}
+
+/* Diseño responsive */
+
+@media (max-width: 1100px) {
+    .indicadores-graficos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .indicadores-graficos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Separación entre las tarjetas principales y los indicadores */
+
+#indicadores-riesgos {
+    margin-top: 8px;
+}
+
+/* Separación entre tarjetas de resumen y gráficas */
+
+#indicadores-riesgos > .cards:not(.indicadores-graficos) {
+    margin-bottom: 12px;
+}
+
+/* Espaciado interno de Indicadores de Gestión del Riesgo */
+
+#indicadores-riesgos > h2 {
+    margin-bottom: 6px !important;
+}
+
+#indicadores-riesgos > p {
+    display: block;
+    line-height: 1.5;
+    margin: 0 0 12px !important;
+}
+
+#indicadores-riesgos > .cards.indicadores-graficos {
+    padding-top: 12px !important;
+
+}
