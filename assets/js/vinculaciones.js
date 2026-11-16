@@ -22,6 +22,15 @@ function cargarTrabajadores() {
 
         selectorTrabajador.appendChild(opcion);
     });
+
+    // Seleccionar automaticamente al trabajador recien registrado
+    const idTrabajador = sessionStorage.getItem('trabajadorParaVincular');
+    if (idTrabajador){
+        selectorTrabajador.value = idTrabajador;
+
+        // Eliminar el identificador temporal despues de seleccionarlo
+        sessionStorage.removeItem('trabajadorParaVincular');
+    }
 }
 
 // ==============================
@@ -71,16 +80,28 @@ function guardarVinculacion(event) {
         return;
     }
 
+    // Recuperar vinculaciones existentes
+const vinculaciones = JSON.parse(localStorage.getItem('vinculaciones')) || [];
+
+    // Validar que el trabajador no tenga otra vinculación activa
+const vinculacionActiva = vinculaciones.some(registro =>
+    registro.idTrabajador === idTrabajador &&
+    registro.estado === 'Activo' &&
+    registro.idVinculacion !== idVinculacionEnEdicion
+);
+
+if (estado === 'Activo' && vinculacionActiva) {
+    alert('Este trabajador ya tiene una vinculación activa. Debe inactivar la vinculación anterior antes de registrar una nueva.');
+    return;
+}
+
     // Validar fechas
     if (fechaFinalizacion && fechaFinalizacion < fechaInicio) {
         alert('La fecha de finalizacion no puede ser anterior a la fecha de inicio.');
         return;
     }
 
-    // Recuperar vinculaciones existentes
-const vinculaciones = JSON.parse(localStorage.getItem('vinculaciones')) || [];
-
-// Crear objeto con los datos del formulario
+   // Crear objeto con los datos del formulario
 const nuevaVinculacion = {
     idVinculacion: idVinculacionEnEdicion || crypto.randomUUID(),
     idTrabajador: idTrabajador,
@@ -127,7 +148,7 @@ document.getElementById('guardar-vinculacion').textContent = 'Guardar Vinculaci�
 
 // Actualizar historial
 mostrarVinculaciones();
-
+}
 // ===================================
 // MOSTRAR HISTORIAL DE VINCULACIONES
 // ===================================
@@ -186,7 +207,28 @@ botonEditar.addEventListener('click', () => {
     editarVinculacion(vinculacion.idVinculacion);
 });
 
+// Agregar botón Editar
 celdaAcciones.appendChild(botonEditar);
+
+// Crear botón Inactivar
+const botonInactivar = document.createElement('button');
+
+botonInactivar.textContent = 'Inactivar';
+botonInactivar.type = 'button';
+botonInactivar.classList.add('btn-inactivar');
+
+// Evitar inactivar nuevamente un registro inactivo
+if (vinculacion.estado === 'Inactivo') {
+    botonInactivar.textContent = 'Inactiva';
+    botonInactivar.disabled = true;
+} else {
+    botonInactivar.addEventListener('click', () => {
+        inactivarVinculacion(vinculacion.idVinculacion);
+    });
+}
+
+celdaAcciones.appendChild(botonInactivar);
+
 fila.appendChild(celdaAcciones);
 
 tabla.appendChild(fila);
@@ -228,6 +270,43 @@ function editarVinculacion(idVinculacion) {
     });
 }
 
+// ===================================
+// INACTIVAR VINCULACIÓN
+// ===================================
+
+function inactivarVinculacion(idVinculacion) {
+
+    const confirmacion = confirm(
+        '¿Está seguro de que desea inactivar esta vinculación?'
+    );
+
+    if (!confirmacion) {
+        return;
+    }
+
+    const vinculaciones = JSON.parse(
+        localStorage.getItem('vinculaciones')
+    ) || [];
+
+    const indice = vinculaciones.findIndex(
+        registro => registro.idVinculacion === idVinculacion
+    );
+
+    if (indice === -1) {
+        alert('No se encontró la vinculación seleccionada.');
+        return;
+    }
+
+    vinculaciones[indice].estado = 'Inactivo';
+    localStorage.setItem(
+        'vinculaciones',
+        JSON.stringify(vinculaciones)
+    );
+
+    mostrarVinculaciones();
+    alert('La vinculación se ha inactivado correctamente.');
+}
+
 // =============================
 // CANCELAR FORMULARIO
 // =============================
@@ -250,4 +329,4 @@ document.addEventListener('DOMContentLoaded', function (){
     const botonCancelar = document.getElementById('cancelar-vinculacion');
     botonCancelar.addEventListener('click', cancelarVinculacion);
 });
-}
+

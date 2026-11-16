@@ -159,3 +159,4 @@ document.getElementById('registrar-trabajador').addEventListener('click', functi
 document.getElementById('gestionar-vinculaciones').addEventListener('click', function () {
     window.location.href = 'vinculaciones.html';
 });
+

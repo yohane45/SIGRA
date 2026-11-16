@@ -54,8 +54,14 @@ formularioTrabajador.addEventListener('submit', function (evento) {
     // Confirmar el registro
     alert('¡Trabajador registrado exitosamente!');
 
-    // Limpiar el formulario
-    formularioTrabajador.reset();
+    // Guardar el identificador del trabajador recien registrado
+    sessionStorage.setItem(
+        'trabajadorParaVincular',
+        nuevoTrabajador.idTrabajador
+    );
+
+    // Redirigir a gestion de vinculaciones
+    window.location.href = 'vinculaciones.html'
 
 });
 
