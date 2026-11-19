@@ -72,9 +72,9 @@ limpiarSeguimiento.addEventListener("click", function () {
 
 });
 
-const cancelarSeguimiento = document.getElementById("cancelar-seguimiento");
+const volverSeguimiento = document.getElementById("volver-seguimiento");
 
-cancelarSeguimiento.addEventListener("click", function () {
+volverSeguimiento.addEventListener("click", function () {
     window.location.href = "medica.html";
 });
 

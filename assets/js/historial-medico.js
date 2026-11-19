@@ -1,5 +1,5 @@
-const cancelarHistorial = document.getElementById("cancelar-historial");
-cancelarHistorial.addEventListener("click", function(){
+const volverHistorial = document.getElementById("volver-historial");
+volverHistorial.addEventListener("click", function(){
     window.location.href = "medica.html";
 });
 

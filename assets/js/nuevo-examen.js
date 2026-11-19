@@ -1,8 +1,8 @@
 const formularioExamen = document.getElementById("form-nuevo-examen");
-const cancelarExamen = document.getElementById("cancelar-examen");
+const volverExamen = document.getElementById("volver-examen");
 
-// Cancelar
-cancelarExamen.addEventListener("click", function () {
+// Volver
+volverExamen.addEventListener("click", function () {
     window.location.href = "medica.html";
 });
 
