@@ -116,6 +116,7 @@
                         type="text" id="documento-identidad" name="documentoIdentidad"
                         placeholder="Ingrese el número de documento" required
                         >
+                        <small id="estado-trabajador" aria-live="polite"></small>
                     </div>
                     <div class="form-group">
                         <label for="nombres-apellidos">
@@ -145,10 +146,7 @@
                         >
                     </div>
                     <input type="hidden" id="id-trabajador" name="idTrabajador">
-                    <div class="form-group">
-                        <small id="estado-trabajdor" aria-live="polite"></small>
                     </div>
-                </div>
 <!-- Informacion de la incapacidad -->
                 <div class="form-section-title">
                     <h2>Información de la incapacidad</h2>
@@ -199,7 +197,7 @@
                         >    
                     </div>
                     <div class="form-group">
-                        <label for="fecha-final">
+                        <label for="fecha-fin">
                             Fecha de finalización
                         </label>
                         <input 

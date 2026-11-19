@@ -1,6 +1,4 @@
-/* ==================================
-TÍTULOS DE SECCIÓN
-================================== */
+/* TÍTULOS DE SECCIÓN */
 .form-section-title {
     margin-bottom: 14px;
 }
@@ -13,9 +11,7 @@ TÍTULOS DE SECCIÓN
     margin-bottom: 0;
 }
 
-/* ==================================
-DISTRIBUCIÓN DEL FORMULARIO
-================================== */
+/* DISTRIBUCIÓN DEL FORMULARIO */
 .informacion-incapacidad-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -27,9 +23,7 @@ DISTRIBUCIÓN DEL FORMULARIO
     margin-bottom: 0;
 }
 
-/* ==================================
-CAMPOS DEL FORMULARIO
-================================== */
+/* CAMPOS DEL FORMULARIO */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -70,17 +64,13 @@ CAMPOS DEL FORMULARIO
     color: var(--color-texto-secundario);
 }
 
-/* ==================================
-ESTADO DE CONSULTA DEL TRABAJADOR
-================================== */
+/* ESTADO DE CONSULTA DEL TRABAJADOR */
 #estado-trabajador {
     font-size: 13px;
     font-weight: 500;
 }
 
-/* ==================================
-CARGA DEL CERTIFICADO
-================================== */
+/* CARGA DEL CERTIFICADO */
 #archivo-incapacidad {
     width: 100%;
     max-width: 100%;
@@ -107,10 +97,7 @@ CARGA DEL CERTIFICADO
     background: var(--color-secundario);
 }
 
-/* ========================================
-TABLA DE INCAPACIDADES
-IDENTIDAD VISUAL SIGRA
-======================================== */
+/* TABLA DE INCAPACIDADES / IDENTIDAD VISUAL SIGRA */
 .table-container {
     width: 100%;
     overflow-x: auto;
@@ -179,9 +166,7 @@ IDENTIDAD VISUAL SIGRA
     color: var(--color-texto-secundario);
 }
 
-/* ==================================
-RESPONSIVE
-================================== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .informacion-incapacidad-grid {
@@ -195,9 +180,7 @@ RESPONSIVE
     }
 }
 
-/* =========================================
-SEPARACIÓN ENTRE FORMULARIO Y CONSULTA
-   ========================================= */
+/* SEPARACIÓN ENTRE FORMULARIO Y CONSULTA */
 
 #form-incapacidades {
     margin-bottom: 0;
@@ -215,4 +198,16 @@ SEPARACIÓN ENTRE FORMULARIO Y CONSULTA
 #form-incapacidades .form-actions {
     padding-bottom: 8px;
     margin-bottom: 0;
+}
+
+/* MENSAJES DE VALIDACIÓN DEL TRABAJADOR */
+#estado-trabajador {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#estado-trabajador:not(:empty) {
+    color: #dc3545;
 }
