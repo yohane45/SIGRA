@@ -30,13 +30,8 @@ function buscarTrabajador() {
     }
 
     // Consultar trabajadores registrados
-    const trabajadores = JSON.parse(
-        localStorage.getItem("trabajadores")
-    ) || [];
-
-    const trabajador = trabajadores.find(persona =>
-        String(persona.documentoIdentidad).trim() === documento
-    );
+    const trabajadores = JSON.parse(localStorage.getItem("trabajadores")) || [];
+    const trabajador = trabajadores.find(persona => String(persona.documentoIdentidad).trim() === documento);
 
     // Validar existencia del trabajador
     if (!trabajador) {
@@ -51,9 +46,7 @@ function buscarTrabajador() {
     idTrabajador.value = trabajador.idTrabajador;
 
     // Consultar vinculaciones
-    const vinculaciones = JSON.parse(
-        localStorage.getItem("vinculaciones")
-    ) || [];
+    const vinculaciones = JSON.parse(localStorage.getItem("vinculaciones")) || [];
 
     // Buscar la vinculación activa más reciente
     const vinculacion = vinculaciones
@@ -130,6 +123,10 @@ const diasIncapacidad = document.getElementById("dias-incapacidad");
 //  GUARDAR INCAPACIDADES 
 
 const formularioIncapacidades = document.getElementById("form-incapacidades");
+
+// Controlar el registro que se encuentra en edición
+let incapacidadEnEdicion = null;
+
 const tipoIncapacidad = document.getElementById("tipo-incapacidad");
 const origenIncapacidad = document.getElementById("origen-incapacidad");
 const entidadExpide = document.getElementById("entidad-expide");
@@ -196,56 +193,322 @@ formularioIncapacidades.addEventListener("submit", async function (evento) {
     }
     try {
 
-        // Convertir soporte documental
-        let soporteDocumental = null;
-        if (archivo) {
-            soporteDocumental = {
-                nombre: archivo.name,
-                tipo: archivo.type,
-                contenido: await convertirArchivoBase64(archivo)
-            };
-        }
+    // Obtener registros existentes
+const incapacidades = JSON.parse(localStorage.getItem("incapacidades")) || [];
 
-        // Obtener registros existentes
-        const incapacidades = JSON.parse(
-            localStorage.getItem("incapacidades")
-        ) || [];
+// Buscar el registro que se está editando
+const indiceEdicion = incapacidades.findIndex(registro => registro.idIncapacidad === incapacidadEnEdicion);
 
-        // Crear nuevo registro
-        const nuevaIncapacidad = {
-            idIncapacidad: crypto.randomUUID(),
-            idTrabajador: idTrabajador.value,
-            documentoIdentidad: documentoIdentidad.value.trim(),
-            nombreTrabajador: nombreApellidos.value,
-            cargo: cargoOficio.value,
-            area: areaSeccionSede.value,
-            tipoIncapacidad: tipoIncapacidad.value,
-            origenIncapacidad: origenIncapacidad.value,
-            fechaInicio: fechaInicio.value,
-            fechaFin: fechaFin.value,
-            diasIncapacidad: Number(diasIncapacidad.value),
-            entidadExpide: entidadExpide.value.trim(),
-            numeroCertificado: numeroCertificado.value.trim(),
-            soporteDocumental: soporteDocumental,
-            observaciones: observacionesAdministrativas.value.trim(),
-            estado: "Registrada",
-            fechaRegistro: new Date().toISOString()
-        };
+const incapacidadAnterior = indiceEdicion !== -1
+    ? incapacidades[indiceEdicion]
+    : null;
 
-        // Agregar registro
-        incapacidades.push(nuevaIncapacidad);
+// Conservar el soporte documental anterior
+let soporteDocumental = incapacidadAnterior
+    ? incapacidadAnterior.soporteDocumental
+    : null;
 
-        // Guardar en localStorage
-        localStorage.setItem(
-            "incapacidades",
-            JSON.stringify(incapacidades)
-        );
+// Reemplazar soporte solamente si se selecciona uno nuevo
+if (archivo) {
+    soporteDocumental = {
+        nombre: archivo.name,
+        tipo: archivo.type,
+        contenido: await convertirArchivoBase64(archivo)
+    };
+}
 
-        alert("La incapacidad se ha guardado correctamente.");
-    } catch (error) {
-        console.error("Error al guardar la incapacidad:", error);
-        alert(
-            "No fue posible guardar la incapacidad. Verifique el almacenamiento disponible."
-        );
+// Construir registro actualizado
+const nuevaIncapacidad = {
+    idIncapacidad: incapacidadAnterior
+        ? incapacidadAnterior.idIncapacidad
+        : crypto.randomUUID(),
+
+    idTrabajador: idTrabajador.value,
+    documentoIdentidad: documentoIdentidad.value.trim(),
+    nombreTrabajador: nombreApellidos.value,
+    cargo: cargoOficio.value,
+    area: areaSeccionSede.value,
+    tipoIncapacidad: tipoIncapacidad.value,
+    origenIncapacidad: origenIncapacidad.value,
+    fechaInicio: fechaInicio.value,
+    fechaFin: fechaFin.value,
+    diasIncapacidad: Number(diasIncapacidad.value),
+    entidadExpide: entidadExpide.value.trim(),
+    numeroCertificado: numeroCertificado.value.trim(),
+    soporteDocumental: soporteDocumental,
+    observaciones: observacionesAdministrativas.value.trim(),
+
+    estado: incapacidadAnterior
+        ? incapacidadAnterior.estado
+        : "Registrada",
+
+    fechaRegistro: incapacidadAnterior
+        ? incapacidadAnterior.fechaRegistro
+        : new Date().toISOString()
+};
+
+// Actualizar o agregar registro
+if (incapacidadAnterior) {
+    incapacidades[indiceEdicion] = nuevaIncapacidad;
+} else {
+    incapacidades.push(nuevaIncapacidad);
+}
+
+// Guardar en localStorage
+localStorage.setItem(
+    "incapacidades",
+    JSON.stringify(incapacidades)
+);
+
+// Finalizar modo edición
+incapacidadEnEdicion = null;
+
+// Actualizar tabla
+mostrarIncapacidades();
+
+// Confirmar operación
+alert(
+    incapacidadAnterior
+        ? "La incapacidad se ha actualizado correctamente."
+        : "La incapacidad se ha guardado correctamente."
+);
+
+    }catch (error) {
+        console.error("Error al guardar la incapacidad", error);
     }
+});
+
+// ==========================================
+// MOSTRAR INCAPACIDADES REGISTRADAS
+// ==========================================
+
+const cuerpoTablaIncapacidades = document.getElementById(
+    "cuerpo-tabla-incapacidades"
+);
+
+function mostrarIncapacidades() {
+
+    // Consultar incapacidades almacenadas
+    const incapacidades = JSON.parse(localStorage.getItem("incapacidades")) || [];
+
+    // Limpiar contenido anterior de la tabla
+    cuerpoTablaIncapacidades.innerHTML = "";
+
+    // Verificar si existen registros
+    if (incapacidades.length === 0) {
+
+        const fila = document.createElement("tr");
+        const celda = document.createElement("td");
+
+        celda.colSpan = 9;
+        celda.textContent = "No hay incapacidades registradas.";
+
+        fila.appendChild(celda);
+        cuerpoTablaIncapacidades.appendChild(fila);
+
+        return;
+    }
+
+    // Recorrer los registros
+    incapacidades.forEach(incapacidad => {
+
+        const fila = document.createElement("tr");
+
+        const codigo = incapacidad.idIncapacidad
+            ? incapacidad.idIncapacidad.substring(0, 8).toUpperCase()
+            : "Sin código";
+
+        const datos = [
+            codigo,
+            incapacidad.nombreTrabajador,
+            incapacidad.documentoIdentidad,
+            incapacidad.origenIncapacidad,
+            incapacidad.fechaInicio,
+            incapacidad.fechaFin,
+            incapacidad.diasIncapacidad,
+            incapacidad.estado,
+        ];
+    // Crear celdas con la información
+        datos.forEach(dato => {
+            const celda = document.createElement("td");
+            celda.textContent = dato ?? "";
+            fila.appendChild(celda);
+        });
+
+    // Crear celda de acciones
+    const celdaAcciones = document.createElement("td");
+
+    // Botón Consultar
+    const botonConsultar = document.createElement("button");
+    botonConsultar.type = "button";
+    botonConsultar.textContent = "Consultar";
+    botonConsultar.className = "button button-secundary";
+    botonConsultar.dataset.accion = "consultar";
+    botonConsultar.dataset.id = incapacidad.idIncapacidad;
+
+    // Boton Editar
+    const botonEditar = document.createElement("button");
+    botonEditar.type ="button";
+    botonEditar.textContent = "Editar";
+    botonEditar.className = "button button-primary";
+    botonEditar.dataset.accion = "editar";
+    botonEditar.dataset.id = incapacidad.idIncapacidad;
+
+    // Contenedor de botones
+    const contenedorAcciones = document.createElement("div");
+    contenedorAcciones.className = "acciones-incapacidad";
+
+    // Agregar botones al contenedor
+    contenedorAcciones.appendChild(botonConsultar);
+    contenedorAcciones.appendChild(botonEditar);
+
+    // Agregar contenedor a la celda
+    celdaAcciones.appendChild(contenedorAcciones);
+
+    // Agregar celda a la fila
+    fila.appendChild(celdaAcciones);
+    cuerpoTablaIncapacidades.appendChild(fila);
+    });
+}
+
+// Mostrar registros al cargar la página
+mostrarIncapacidades();
+
+// ==========================================
+// CONSULTAR DETALLE DE INCAPACIDAD
+// ==========================================
+
+const modalConsulta = document.getElementById("modal-consulta-incapacidad");
+const detalleIncapacidad = document.getElementById("detalle-incapacidad");
+const cerrarModal = document.getElementById("cerrar-modal-incapacidad");
+
+// Evento para consultar los registros
+cuerpoTablaIncapacidades.addEventListener("click", function (evento) {
+
+const boton = evento.target.closest('[data-accion="consultar"]');
+    if (!boton) {
+        return;
+    }
+    const id = boton.dataset.id;
+    const incapacidades = JSON.parse(localStorage.getItem("incapacidades")) || [];
+    const incapacidad = incapacidades.find(registro => registro.idIncapacidad === id);
+
+    if (!incapacidad) {
+        alert("No se encontró la incapacidad seleccionada.");
+        return;
+    }
+
+    // Preparar información del registro
+    const campos = [
+        ["Trabajador", incapacidad.nombreTrabajador],
+        ["Documento", incapacidad.documentoIdentidad],
+        ["Cargo", incapacidad.cargo],
+        ["Área", incapacidad.area],
+        ["Tipo de incapacidad", incapacidad.tipoIncapacidad],
+        ["Origen", incapacidad.origenIncapacidad],
+        ["Fecha de inicio", incapacidad.fechaInicio],
+        ["Fecha de finalización", incapacidad.fechaFin],
+        ["Días de incapacidad", incapacidad.diasIncapacidad],
+        ["Entidad que expide", incapacidad.entidadExpide],
+        ["Número del certificado", incapacidad.numeroCertificado],
+        ["Estado", incapacidad.estado],
+        ["Observaciones", incapacidad.observaciones]
+    ];
+
+    // Limpiar contenido anterior
+    detalleIncapacidad.innerHTML = "";
+
+    // Crear los campos de consulta
+    campos.forEach(([etiqueta, valor]) => {
+    const grupo = document.createElement("div"); grupo.className = "detalle-incapacidad-item";
+    const titulo = document.createElement("strong"); titulo.textContent = etiqueta;
+    const contenido = document.createElement("span"); contenido.textContent = valor || "No registrado";
+
+        grupo.appendChild(titulo);
+        grupo.appendChild(contenido);
+        detalleIncapacidad.appendChild(grupo);
+    });
+
+    // Mostrar soporte documental
+    const grupoSoporte = document.createElement("div");
+    grupoSoporte.className = "detalle-incapacidad-item";
+
+    const tituloSoporte = document.createElement("strong");
+    tituloSoporte.textContent = "Soporte documental";
+
+    grupoSoporte.appendChild(tituloSoporte);
+
+    if (
+        incapacidad.soporteDocumental &&
+        incapacidad.soporteDocumental.contenido
+    ) {
+
+    const enlace = document.createElement("a");
+        enlace.href = incapacidad.soporteDocumental.contenido;
+        enlace.target = "_blank";
+        enlace.rel = "noopener noreferrer";
+        enlace.textContent = incapacidad.soporteDocumental.nombre;
+        grupoSoporte.appendChild(enlace);
+    } else {
+
+    const mensaje = document.createElement("span"); mensaje.textContent = "Sin soporte documental.";
+        grupoSoporte.appendChild(mensaje);
+    }
+    detalleIncapacidad.appendChild(grupoSoporte);
+
+    // Abrir ventana modal
+    modalConsulta.showModal();
+});
+
+// Cerrar ventana modal
+cerrarModal.addEventListener("click", function () {
+    modalConsulta.close();
+});
+
+// ==========================================
+// CARGAR INCAPACIDAD PARA EDICIÓN
+// ==========================================
+
+cuerpoTablaIncapacidades.addEventListener("click", function (evento) {
+
+    const boton = evento.target.closest('[data-accion="editar"]');
+    if (!boton) {
+        return;
+    }
+    const id = boton.dataset.id;
+    const incapacidades = JSON.parse(localStorage.getItem("incapacidades")) || [];
+    const incapacidad = incapacidades.find(registro => registro.idIncapacidad === id);
+    if (!incapacidad) {
+        alert("No se encontró la incapacidad seleccionada.");
+        return;
+    }
+
+    // Identificar el registro que se está editando
+    incapacidadEnEdicion = incapacidad.idIncapacidad;
+
+    // Cargar información del trabajador
+    documentoIdentidad.value = incapacidad.documentoIdentidad;
+    nombreApellidos.value = incapacidad.nombreTrabajador;
+    cargoOficio.value = incapacidad.cargo;
+    areaSeccionSede.value = incapacidad.area;
+    idTrabajador.value = incapacidad.idTrabajador;
+
+    // Cargar información de la incapacidad
+    tipoIncapacidad.value = incapacidad.tipoIncapacidad;
+    origenIncapacidad.value = incapacidad.origenIncapacidad;
+    fechaInicio.value = incapacidad.fechaInicio;
+    fechaFin.value = incapacidad.fechaFin;
+    diasIncapacidad.value = incapacidad.diasIncapacidad;
+    entidadExpide.value = incapacidad.entidadExpide;
+    numeroCertificado.value = incapacidad.numeroCertificado;
+    observacionesAdministrativas.value = incapacidad.observaciones;
+
+    // Actualizar cálculo de días
+    calcularDiasIncapacidad();
+
+    // Desplazarse hasta el formulario
+    formularioIncapacidades.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 });

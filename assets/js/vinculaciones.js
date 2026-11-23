@@ -311,7 +311,7 @@ function inactivarVinculacion(idVinculacion) {
 // CANCELAR FORMULARIO
 // =============================
 
-function cancelarVinculacion() {
+function volverVinculacion() {
     window.location.href = 'trabajadores.html';
 
 }
@@ -326,7 +326,8 @@ document.addEventListener('DOMContentLoaded', function (){
     mostrarVinculaciones();
     const formulario = document.getElementById('formulario-vinculacion');
     formulario.addEventListener('submit', guardarVinculacion);
-    const botonCancelar = document.getElementById('cancelar-vinculacion');
-    botonCancelar.addEventListener('click', cancelarVinculacion);
+
+    const botonVolver = document.getElementById('volver-vinculacion');
+    botonVolver.addEventListener('click', volverVinculacion);
 });
 

@@ -69,8 +69,8 @@ formularioTrabajador.addEventListener('submit', function (evento) {
 // CANCELAR REGISTRO DE TRABAJADOR
 // ========================================
 
-const botonCancelar = document.getElementById('cancelar-trabajador');
-botonCancelar.addEventListener('click', function () {
+const botonVolver = document.getElementById('volver-trabajador');
+botonVolver.addEventListener('click', function () {
     window.location.href = 'trabajadores.html';
 
 });

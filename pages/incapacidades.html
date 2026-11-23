@@ -320,6 +320,24 @@
         </table>
     </div>
 </section>
+
+<!-- Ventana modal: consultar incapacidad -->
+<dialog id="modal-consulta-incapacidad" class="modal-incapacidad">
+    <div class="modal-incapacidad-header">
+        <div>
+            <h2>Detalle de incapacidad</h2>
+            <p>Información completa del registro médico.</p>
+        </div>
+        <button type="button" id="cerrar-modal-incapacidad" class="button button-secundary"
+        >
+        <i class="bi bi-x-lg"></i>
+        Cerrar
+    </button>
+    </div>
+    <div id="detalle-incapacidad" class="detalle-incapacidad">
+        <!-- La información se cargara desde JavaScript -->
+    </div>
+</dialog>
 </main> 
     </div>
     <script src="../assets/js/incapacidades.js" defer></script>
